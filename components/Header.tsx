@@ -7,16 +7,16 @@ import { Separator } from "./ui/separator";
 
 export function Header() {
     return (
-        <header className="bg-[#FFE1BE]">
+        <header className="">
             <div className="mx-auto max-w-[90vw] px-4 sm:px-6 lg:px-4 py-4">
                 {/* White Container */}
-                <div className="rounded-2xl bg-white">
+                <div className="rounded-2xl bg-[#FAE7D5]">
                     {/* Top Section */}
-                    <div className="flex items-center justify-between gap-4 px-6 py-4">
+                    <div className="flex items-center justify-between gap-16 px-6 py-4">
                         {/* Logo */}
                         <Link href="/" className="shrink-0">
                             <Image
-                                src="/assets/logos/oficial.svg"
+                                src="/assets/logos/logoheader.svg"
                                 alt="Fuxico"
                                 width={150}
                                 height={50}
@@ -60,46 +60,46 @@ export function Header() {
                     </div>
 
                     {/* Divider */}
-                    <div className="px-16">
-                        <Separator className="bg-black" />
+                    <div className="px-6">
+                        <Separator className="bg-[#732C03]" />
                     </div>
 
                     {/* Navigation Menu */}
-                    <nav className="flex items-center gap-8 px-6 py-4">
+                    <nav className="flex items-center justify-center gap-8 px-6 py-4">
                         <Link
-                            href="/catalogo"
-                            className="flex items-center gap-1 text-sm font-body font-medium text-black hover:text-gray-600"
+                            href="/"
+                            className="flex items-center gap-1 text-sm font-body font-medium text-[#732C03] hover:text-gray-600"
                         >
                             Catálogo
                             <ChevronDown className="h-4 w-4" />
                         </Link>
                         <Link
-                            href="/promocoes"
-                            className="text-sm font-body font-medium text-black hover:text-gray-600"
+                            href="/"
+                            className="text-sm font-body text-[#732C03] hover:text-gray-600"
                         >
                             Promoções
                         </Link>
                         <Link
-                            href="/sobre-nos"
-                            className="text-sm font-body font-medium text-black hover:text-gray-600"
+                            href="/"
+                            className="text-sm font-body text-[#732C03] hover:text-gray-600"
                         >
                             Sobre nós
                         </Link>
                         <Link
-                            href="/clube"
-                            className="text-sm font-body font-medium text-black hover:text-gray-600"
+                            href="/"
+                            className="text-sm font-body text-[#732C03] hover:text-gray-600"
                         >
                             Clube
                         </Link>
                         <Link
-                            href="/parceiros"
-                            className="text-sm font-body font-medium text-black hover:text-gray-600"
+                            href="/"
+                            className="text-sm font-body text-[#732C03] hover:text-gray-600"
                         >
                             Parceiros
                         </Link>
                         <Link
-                            href="/contato"
-                            className="text-sm font-body font-medium text-black hover:text-gray-600"
+                            href="/"
+                            className="text-sm font-body text-[#732C03] hover:text-gray-600"
                         >
                             Contato
                         </Link>
