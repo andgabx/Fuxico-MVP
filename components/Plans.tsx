@@ -2,6 +2,7 @@
 
 import { Check } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
 
 interface Plan {
     id: number;
@@ -102,7 +103,9 @@ export function Plans() {
                                 className="mb-4 w-full rounded-full px-4 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-105 sm:mb-6 sm:px-6 sm:py-3 sm:text-base"
                                 style={{ backgroundColor: plan.buttonColor }}
                             >
-                                {plan.buttonText}
+                                <Link href="/register">
+                                    {plan.buttonText}
+                                </Link>
                             </button>
 
                             <Separator className="my-4 bg-[#732C03] sm:my-6" />
