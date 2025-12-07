@@ -10,7 +10,7 @@ export function Step5Success() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="rounded-2xl bg-[#FFF4E6] p-8 shadow-lg text-center"
+            className="flex flex-1 flex-col justify-center rounded-2xl bg-[#FFF4E6] p-8 shadow-lg text-center w-full"
         >
             {/* Success Icon */}
             <motion.div

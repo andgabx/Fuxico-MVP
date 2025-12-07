@@ -25,12 +25,14 @@ export function Step4Confirm({ onNext, formData }: Step4ConfirmProps) {
         ? planOptions.find((p) => p.value === personalData.plan)
         : null;
     return (
-        <div className="rounded-2xl bg-[#FFF4E6] p-8 shadow-lg">
+        <div className="flex flex-1 flex-col rounded-2xl bg-[#FFF4E6] p-8 shadow-lg w-full">
             {/* Header Banner */}
             <div className="mb-6 flex items-center justify-center">
                 <div className="flex items-center gap-2 rounded-lg bg-[#FF355A] px-6 py-3">
                     <CheckCircle2 className="h-6 w-6 text-white" />
-                    <span className="text-xl font-bold text-white">CONFIRMAR</span>
+                    <span className="text-xl font-bold text-white">
+                        CONFIRMAR
+                    </span>
                 </div>
             </div>
 
@@ -116,7 +118,15 @@ export function Step4Confirm({ onNext, formData }: Step4ConfirmProps) {
                             </p>
                             <p className="text-sm text-[#732C03]">
                                 {address
-                                    ? `${address.address}, ${address.number}${address.complement ? ` - ${address.complement}` : ""} | CEP ${address.cep} | ${address.neighborhood}, ${address.city || ""}, ${address.state}`
+                                    ? `${address.address}, ${address.number}${
+                                          address.complement
+                                              ? ` - ${address.complement}`
+                                              : ""
+                                      } | CEP ${address.cep} | ${
+                                          address.neighborhood
+                                      }, ${address.city || ""}, ${
+                                          address.state
+                                      }`
                                     : "Endereço não informado"}
                             </p>
                         </div>
@@ -156,4 +166,3 @@ export function Step4Confirm({ onNext, formData }: Step4ConfirmProps) {
         </div>
     );
 }
-

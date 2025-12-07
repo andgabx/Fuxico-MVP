@@ -4,13 +4,17 @@ import { Footer } from "@/components/Footer";
 import { Releases } from "@/components/Releases";
 import { Plans } from "@/components/Plans";
 import { Hero } from "@/components/Hero";
+import { PromoBanner } from "@/components/PromoBanner";
+import { Benefits } from "@/components/Benefits";
 
 export default function Home() {
     return (
         <div className="bg-[#FFE1BE]">
+            <PromoBanner />
             <Hero />
             <Releases />
             <AboutUs />
+            <Benefits />
             <Plans />
             <Testimonials />
             <Footer />

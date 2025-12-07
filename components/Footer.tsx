@@ -144,7 +144,7 @@ export function Footer() {
                                             href="/"
                                             className="text-sm text-white transition-colors hover:text-gray-300"
                                         >
-                                            Customer Support
+                                            Suporte
                                         </Link>
                                     </li>
                                     <li>
@@ -185,7 +185,7 @@ export function Footer() {
                                             href="/"
                                             className="text-sm text-white transition-colors hover:text-gray-300"
                                         >
-                                            Account
+                                            Conta
                                         </Link>
                                     </li>
                                     <li>
@@ -193,7 +193,7 @@ export function Footer() {
                                             href="/"
                                             className="text-sm text-white transition-colors hover:text-gray-300"
                                         >
-                                            Manage Deliveries
+                                            Gerenciar Entregas
                                         </Link>
                                     </li>
                                     <li>
@@ -201,7 +201,7 @@ export function Footer() {
                                             href="/"
                                             className="text-sm text-white transition-colors hover:text-gray-300"
                                         >
-                                            Orders
+                                            Pedidos
                                         </Link>
                                     </li>
                                     <li>
@@ -209,7 +209,7 @@ export function Footer() {
                                             href="/"
                                             className="text-sm text-white transition-colors hover:text-gray-300"
                                         >
-                                            Payments
+                                            Pagamentos
                                         </Link>
                                     </li>
                                 </ul>

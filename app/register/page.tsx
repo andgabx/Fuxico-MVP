@@ -96,7 +96,7 @@ export default function RegisterPage() {
     };
 
     return (
-        <div className="min-h-screen bg-[#FFE1BE]">
+        <div className="flex min-h-screen flex-col bg-[#FFE1BE]">
             {/* Header */}
             <HeaderRegister />
 
@@ -106,7 +106,7 @@ export default function RegisterPage() {
                 <div className="absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-[#FFE1BE] opacity-30 blur-3xl"></div>
             </div>
 
-            <div className="relative z-10 min-h-screen py-8 px-4">
+            <div className="relative z-10 flex flex-1 flex-col py-8 px-4">
                 {/* Cancel Button - Escanteado à esquerda */}
                 <div className="mb-8">
                     <Link
@@ -121,7 +121,7 @@ export default function RegisterPage() {
                 </div>
 
                 {/* Main Content */}
-                <div className="mx-auto max-w-4xl">
+                <div className="mx-auto flex flex-1 flex-col max-w-4xl w-full">
                     {/* Progress Bar - Alinhado com o formulário */}
                     <div className="mb-8 flex items-center justify-center bg-[#FFF4E6] rounded-lg p-4 w-full">
                         <div className="flex items-center gap-4">
@@ -174,6 +174,7 @@ export default function RegisterPage() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.3 }}
+                            className="flex flex-1"
                         >
                             {getStepComponent()}
                         </motion.div>

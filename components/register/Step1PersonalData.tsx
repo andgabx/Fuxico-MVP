@@ -49,8 +49,8 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="rounded-2xl bg-[#FFF4E6] p-8 shadow-lg">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-1 w-full">
+            <div className="flex flex-1 flex-col rounded-2xl bg-[#FFF4E6] p-8 shadow-lg w-full">
                 {/* Header Banner */}
                 <div className="mb-6 flex items-center justify-between">
                     <div className="flex items-center gap-2 rounded-lg bg-[#FF355A] px-4 py-2">

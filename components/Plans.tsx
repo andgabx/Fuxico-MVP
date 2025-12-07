@@ -66,18 +66,18 @@ const plans: Plan[] = [
 export function Plans() {
     return (
         <section className="w-full bg-[#FFE1BE] py-[4vh] md:py-[8vh]">
-            <div className="mx-auto w-full max-w-[90vw] px-[4vw] sm:px-[6vw] lg:px-[8vw]">
+            <div className="mx-auto w-full max-w-[90vw]">
                 {/* Title */}
-                <h2 className="mb-8 text-center text-2xl font-bold text-[#732C03] font-hero sm:mb-10 sm:text-3xl md:mb-12 md:text-4xl lg:text-5xl xl:text-6xl">
+                <h2 className="mb-8 text-center text-2xl font-bold text-[#732C03] font-hero sm:mb-10 sm:text-3xl md:mb-12 md:text-4xl lg:text-5xl xl:text-6xl px-[4vw] sm:px-[6vw] lg:px-[8vw]">
                     CONHEÇA NOSSOS CLUBES DE ASSINATURA
                 </h2>
 
                 {/* Plans Grid */}
-                <div className="mb-8 grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3 lg:mb-12">
+                <div className="mb-8 grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3 lg:mb-12 px-[4vw] sm:px-[6vw] lg:px-[8vw]">
                     {plans.map((plan) => (
                         <div
                             key={plan.id}
-                            className="w-full min-h-[50vh] rounded-2xl bg-[#FFF4E6] p-4 shadow-lg sm:min-h-[55vh] sm:p-6 md:w-[20.83vw] md:min-h-[60.28vh]"
+                            className="w-full min-h-[50vh] rounded-2xl bg-[#FFF4E6] p-4 shadow-lg sm:min-h-[55vh] sm:p-6 md:min-h-[60.28vh]"
                         >
                             {/* Plan Name */}
                             <div className="mb-3 text-xl text-center font-poppins font-bold text-[#732C03] sm:mb-4 sm:text-2xl">
@@ -103,9 +103,7 @@ export function Plans() {
                                 className="mb-4 w-full rounded-full px-4 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-105 sm:mb-6 sm:px-6 sm:py-3 sm:text-base"
                                 style={{ backgroundColor: plan.buttonColor }}
                             >
-                                <Link href="/register">
-                                    {plan.buttonText}
-                                </Link>
+                                <Link href="/register">{plan.buttonText}</Link>
                             </button>
 
                             <Separator className="my-4 bg-[#732C03] sm:my-6" />

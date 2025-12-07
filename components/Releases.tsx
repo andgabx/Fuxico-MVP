@@ -18,14 +18,14 @@ const products: Product[] = [
     {
         id: 1,
         name: "Produto 1",
-        image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=400&fit=crop",
+        image: "",
         rating: 4.5,
         price: 120,
     },
     {
         id: 2,
         name: "Produto 2",
-        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop",
+        image: "",
         rating: 3.5,
         price: 240,
         originalPrice: 260,
@@ -34,14 +34,14 @@ const products: Product[] = [
     {
         id: 3,
         name: "Produto 3",
-        image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=400&fit=crop",
+        image: "",
         rating: 4.5,
         price: 180,
     },
     {
         id: 4,
         name: "Produto 4",
-        image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=400&h=400&fit=crop",
+        image: "",
         rating: 4.5,
         price: 130,
         originalPrice: 160,
@@ -101,21 +101,32 @@ export function Releases() {
                     {products.map((product) => (
                         <div
                             key={product.id}
-                            className="group rounded-2xl p-4"
+                            className="group rounded-2xl border border-[#FFF4E6] bg-[#FFF4E6] p-4 shadow-lg"
                         >
-                            {/* Product Image */}
+                            {/* Product Image with Background */}
                             <div className="relative mb-4 aspect-square w-full overflow-hidden rounded-xl">
-                                <Image
-                                    src={product.image}
-                                    alt={product.name}
-                                    fill
-                                    className="object-cover transition-transform duration-300 group-hover:scale-110"
-                                />
-
+                                {/* Background SVG */}
+                                <div className="absolute inset-0">
+                                    <Image
+                                        src="/assets/releases/productbg.svg"
+                                        alt=""
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                                {/* Product Image */}
+                                <div className="relative h-full w-full">
+                                    <Image
+                                        src={product.image}
+                                        alt={product.name}
+                                        fill
+                                        className="object-contain p-4 transition-transform duration-300 group-hover:scale-110"
+                                    />
+                                </div>
                             </div>
 
                             {/* Product Name */}
-                            <h3 className="mb-2 text-lg font-semibold text-gray-800">
+                            <h3 className="mb-2 text-lg font-semibold text-[#732C03]">
                                 {product.name}
                             </h3>
 
@@ -126,13 +137,16 @@ export function Releases() {
 
                             {/* Price */}
                             <div className="flex items-center gap-2">
-                                <span className="text-xl font-bold text-gray-900">
+                                <span className="text-xl font-bold text-[#732C03]">
                                     ${product.price}
                                 </span>
                                 {product.originalPrice && (
                                     <>
                                         <span className="text-sm text-gray-500 line-through">
                                             ${product.originalPrice}
+                                        </span>
+                                        <span className="rounded bg-[#FF355A] px-2 py-0.5 text-xs font-semibold text-white">
+                                            -{product.discount}%
                                         </span>
                                     </>
                                 )}
@@ -145,7 +159,7 @@ export function Releases() {
                 <div className="flex justify-center">
                     <Link
                         href="/"
-                        className="rounded-full bg-[#FF6600] px-8 py-3 text-base font-medium text-white transition-all duration-300 hover:bg-[#FF8533] hover:scale-105"
+                        className="rounded-full bg-[#00C4D8] px-8 py-3 text-base font-medium text-white transition-all duration-300 hover:bg-[#00B4C8] hover:scale-105"
                     >
                         Ver todos
                     </Link>
@@ -154,4 +168,3 @@ export function Releases() {
         </section>
     );
 }
-
