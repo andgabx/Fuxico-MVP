@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Bagel_Fat_One, Poppins } from "next/font/google";
+import { Poppins, Londrina_Solid } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
-const bagelFatOne = Bagel_Fat_One({
-    variable: "--font-bagel",
-    weight: "400",
-    subsets: ["latin"],
-});
-
 const poppins = Poppins({
     variable: "--font-poppins",
     weight: ["300", "400", "500", "600", "700"],
+    subsets: ["latin"],
+});
+
+const londrinaSolid = Londrina_Solid({
+    variable: "--font-hero",
+    weight: "400",
     subsets: ["latin"],
 });
 
@@ -29,11 +29,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${bagelFatOne.variable} ${poppins.variable} antialiased`}
+                className={`${poppins.variable} ${londrinaSolid.variable} antialiased`}
             >
                 <Header />
                 {children}
-                <Footer />
             </body>
         </html>
     );

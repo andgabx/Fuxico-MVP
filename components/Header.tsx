@@ -2,21 +2,27 @@
 
 import { Search, User, ShoppingCart, ChevronDown } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { Separator } from "./ui/separator";
 
 export function Header() {
     return (
-        <header className="bg-gray-100">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
+        <header className="bg-[#FFE1BE]">
+            <div className="mx-auto max-w-[90vw] px-4 sm:px-6 lg:px-4 py-4">
                 {/* White Container */}
                 <div className="rounded-2xl bg-white">
                     {/* Top Section */}
                     <div className="flex items-center justify-between gap-4 px-6 py-4">
                         {/* Logo */}
                         <Link href="/" className="shrink-0">
-                            <h1 className="text-4xl font-bold text-black font-title">
-                                Fuxico
-                            </h1>
+                            <Image
+                                src="/assets/logos/oficial.svg"
+                                alt="Fuxico"
+                                width={150}
+                                height={50}
+                                className="h-10 w-auto"
+                                priority
+                            />
                         </Link>
 
                         {/* Search Bar */}

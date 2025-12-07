@@ -5,8 +5,11 @@ import Link from "next/link";
 import { Separator } from "./ui/separator";
 
 export function Footer() {
+
+    const year = new Date().getFullYear();
+
     return (
-        <footer className="bg-black">
+        <footer className="bg-black rounded-t-4xl">
             <div className="mx-auto w-full max-w-[90vw] px-[4vw] sm:px-[6vw] lg:px-[8vw] pt-[4vh]">
                 {/* Newsletter Subscription Section */}
                 <div className="rounded-2xl bg-gray-100 px-[2vw] py-8 shadow-lg">
@@ -46,7 +49,7 @@ export function Footer() {
                             {/* Left Column: Brand Information */}
                             <div className="lg:col-span-2">
                                 <Link href="/" className="mb-4 inline-block">
-                                    <h2 className="text-3xl font-bold text-white font-title">
+                                    <h2 className="text-3xl font-bold text-white font-hero">
                                         fuxico
                                     </h2>
                                 </Link>
@@ -199,10 +202,10 @@ export function Footer() {
                         </div>
 
                         {/* Copyright Information */}
-                        <div className="text-center">
+                        <div className="text-left">
                             <p className="text-sm text-white">
-                                Fuxico © 2025, Todos os direitos reservados.
-                            </p>
+                                Fuxico © {year}, Todos os direitos reservados.
+                            </p> 
                         </div>
                     </div>
                 </div>
