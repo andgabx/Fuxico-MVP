@@ -97,31 +97,64 @@ export function Testimonials() {
                     {visibleTestimonials.map((testimonial, index) => (
                         <motion.div
                             key={`${testimonial.id}-${currentIndex}`}
-                            initial={{ opacity: 0, x: 100 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{
-                                duration: 0.6,
-                                ease: "easeOut",
-                                delay: index * 0.1,
+                            initial={{
+                                opacity: 0,
+                                x: index === 0 ? -100 : index === 1 ? 0 : 100,
+                                y: 50,
+                                rotate: index === 0 ? -5 : index === 1 ? 0 : 5,
+                                scale: 0.8,
                             }}
-                            className="min-w-[300px] flex-1 rounded-2xl overflow-hidden bg-white p-6 shadow-lg"
+                            animate={{
+                                opacity: 1,
+                                x: 0,
+                                y: 0,
+                                rotate: 0,
+                                scale: 1,
+                            }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 100,
+                                damping: 15,
+                                delay: index * 0.15,
+                            }}
+                            className="min-w-[300px] flex-1 rounded-2xl overflow-hidden bg-[#FFF4E6] p-6 shadow-lg"
                         >
                             {/* Stars */}
                             <motion.div
                                 className="mb-4 flex gap-1"
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.2, duration: 0.3 }}
+                                transition={{
+                                    delay: 0.3,
+                                    type: "spring",
+                                    stiffness: 200,
+                                    damping: 10,
+                                }}
                             >
                                 {Array.from({ length: testimonial.rating }).map(
                                     (_, i) => (
                                         <motion.div
                                             key={i}
-                                            initial={{ opacity: 0, scale: 0 }}
-                                            animate={{ opacity: 1, scale: 1 }}
+                                            initial={{
+                                                opacity: 0,
+                                                scale: 0,
+                                                rotate: -180,
+                                            }}
+                                            animate={{
+                                                opacity: 1,
+                                                scale: 1,
+                                                rotate: 0,
+                                            }}
                                             transition={{
-                                                delay: 0.3 + i * 0.1,
-                                                duration: 0.2,
+                                                delay: 0.4 + i * 0.1,
+                                                type: "spring",
+                                                stiffness: 200,
+                                                damping: 10,
+                                            }}
+                                            whileHover={{
+                                                scale: 1.3,
+                                                rotate: 360,
+                                                transition: { duration: 0.3 },
                                             }}
                                         >
                                             <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
@@ -135,15 +168,41 @@ export function Testimonials() {
                                 className="mb-4 flex items-center gap-2"
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.4, duration: 0.3 }}
+                                transition={{
+                                    delay: 0.6,
+                                    type: "spring",
+                                    stiffness: 150,
+                                    damping: 12,
+                                }}
                             >
-                                <span className="text-lg font-semibold text-black">
+                                <motion.span
+                                    className="text-lg font-semibold text-black"
+                                    whileHover={{ scale: 1.1 }}
+                                >
                                     {testimonial.name}
-                                </span>
+                                </motion.span>
                                 <motion.div
-                                    initial={{ opacity: 0, scale: 0 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: 0.5, duration: 0.2 }}
+                                    initial={{
+                                        opacity: 0,
+                                        scale: 0,
+                                        rotate: -180,
+                                    }}
+                                    animate={{
+                                        opacity: 1,
+                                        scale: 1,
+                                        rotate: 0,
+                                    }}
+                                    transition={{
+                                        delay: 0.7,
+                                        type: "spring",
+                                        stiffness: 200,
+                                        damping: 10,
+                                    }}
+                                    whileHover={{
+                                        scale: 1.3,
+                                        rotate: 360,
+                                        transition: { duration: 0.3 },
+                                    }}
                                 >
                                     <Check className="h-5 w-5 text-green-500" />
                                 </motion.div>
@@ -154,7 +213,12 @@ export function Testimonials() {
                                 className="text-sm leading-relaxed text-gray-700"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.6, duration: 0.3 }}
+                                transition={{
+                                    delay: 0.8,
+                                    type: "spring",
+                                    stiffness: 100,
+                                    damping: 15,
+                                }}
                             >
                                 {testimonial.text}
                             </motion.p>

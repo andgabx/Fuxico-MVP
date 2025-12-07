@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins, Londrina_Solid } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 
 const poppins = Poppins({
     variable: "--font-poppins",
@@ -31,7 +29,6 @@ export default function RootLayout({
             <body
                 className={`${poppins.variable} ${londrinaSolid.variable} antialiased`}
             >
-                <Header />
                 {children}
             </body>
         </html>

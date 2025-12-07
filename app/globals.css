@@ -125,4 +125,10 @@
   .font-hero {
     font-family: var(--font-hero), sans-serif;
   }
+  .tiktok-icon-white {
+    filter: brightness(0) invert(1);
+  }
+  .group:hover .tiktok-icon-marrom {
+    filter: brightness(0) saturate(100%) invert(27%) sepia(89%) saturate(1352%) hue-rotate(346deg) brightness(96%) contrast(87%);
+  }
 }
