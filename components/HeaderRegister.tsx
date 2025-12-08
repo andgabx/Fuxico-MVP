@@ -56,7 +56,7 @@ export function HeaderRegister() {
                                         <Link
                                             href="/login"
                                             onClick={() => setIsOpen(false)}
-                                            className="flex items-center gap-3 py-2 text-base font-medium text-[#732C03] hover:text-[#FF355A] transition-colors"
+                                            className="flex items-center gap-3 py-2 text-base font-medium text-[#732C03] hover:text-[#FF355A] hover:font-bold transition-colors"
                                         >
                                             <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#732C03]">
                                                 <User className="h-5 w-5 text-[#732C03]" />
@@ -66,7 +66,7 @@ export function HeaderRegister() {
                                         <Link
                                             href="/cart"
                                             onClick={() => setIsOpen(false)}
-                                            className="flex items-center gap-3 py-2 text-base font-medium text-[#732C03] hover:text-[#FF355A] transition-colors"
+                                            className="flex items-center gap-3 py-2 text-base font-medium text-[#732C03] hover:text-[#FF355A] hover:font-bold transition-colors"
                                         >
                                             <ShoppingCart className="h-5 w-5 text-[#732C03]" />
                                             <span>Carrinho</span>
@@ -96,7 +96,7 @@ export function HeaderRegister() {
                             {/* Login/Register */}
                             <Link
                                 href="/login"
-                                className="flex items-center gap-2 text-sm font-medium text-[#732C03] hover:text-[#FF355A] transition-colors"
+                                className="flex items-center gap-2 text-sm font-medium text-[#732C03] hover:text-[#FF355A] hover:font-bold transition-colors"
                             >
                                 <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#732C03]">
                                     <User className="h-5 w-5 text-[#732C03]" />
@@ -107,7 +107,7 @@ export function HeaderRegister() {
                             {/* Shopping Cart */}
                             <Link
                                 href="/cart"
-                                className="flex items-center gap-2 text-sm font-medium text-[#732C03] hover:text-[#FF355A] transition-colors"
+                                className="flex items-center gap-2 text-sm font-medium text-[#732C03] hover:text-[#FF355A] hover:font-bold transition-colors"
                             >
                                 <ShoppingCart className="h-5 w-5 text-[#732C03]" />
                                 <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#FFE1BE] text-xs font-medium text-[#732C03]">
@@ -120,7 +120,7 @@ export function HeaderRegister() {
                         <div className="flex lg:hidden items-center gap-3">
                             <Link
                                 href="/cart"
-                                className="flex items-center text-[#732C03] hover:text-[#FF355A] transition-colors relative"
+                                className="flex items-center text-[#732C03] hover:text-[#FF355A] hover:font-bold transition-colors relative"
                             >
                                 <ShoppingCart className="h-5 w-5" />
                                 <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-[#FFE1BE] text-xs font-medium text-[#732C03]">

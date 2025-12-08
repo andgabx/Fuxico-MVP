@@ -17,15 +17,15 @@ interface Product {
 const products: Product[] = [
     {
         id: 1,
-        name: "Produto 1",
-        image: "",
+        name: "Sketchbook",
+        image: "/assets/releases/sketchbook.png",
         rating: 4.5,
         price: 120,
     },
     {
         id: 2,
-        name: "Produto 2",
-        image: "",
+        name: "Camiseta",
+        image: "/assets/releases/bag.png",
         rating: 3.5,
         price: 240,
         originalPrice: 260,
@@ -33,15 +33,15 @@ const products: Product[] = [
     },
     {
         id: 3,
-        name: "Produto 3",
-        image: "",
+        name: "Caneca",
+        image: "/assets/releases/cup.png",
         rating: 4.5,
         price: 180,
     },
     {
         id: 4,
-        name: "Produto 4",
-        image: "",
+        name: "Camiseta",
+        image: "/assets/releases/tshirt.png",
         rating: 4.5,
         price: 130,
         originalPrice: 160,
@@ -92,7 +92,7 @@ export function Releases() {
         <section className="w-full py-[8vh]">
             <div className="mx-auto w-full max-w-[90vw] px-[4vw]">
                 {/* Title */}
-                <h2 className="mb-8 text-4xl font-bold text-[#732C03] font-hero md:text-5xl lg:text-6xl">
+                <h2 className="mb-8 text-4xl font-bold text-brown-1 font-hero md:text-5xl lg:text-6xl">
                     LANÇAMENTOS
                 </h2>
 
@@ -101,32 +101,35 @@ export function Releases() {
                     {products.map((product) => (
                         <div
                             key={product.id}
-                            className="group rounded-2xl border border-[#FFF4E6] bg-[#FFF4E6] p-4 shadow-lg"
+                            className="group rounded-2xl border border-cream-2 bg-cream-2 p-4 shadow-lg"
                         >
                             {/* Product Image with Background */}
                             <div className="relative mb-4 aspect-square w-full overflow-hidden rounded-xl">
                                 {/* Background SVG */}
-                                <div className="absolute inset-0">
+                                <div className="absolute inset-0 z-0">
                                     <Image
-                                        src="/assets/releases/productbg.svg"
+                                        src="/assets/releases/productbg.png"
                                         alt=""
                                         fill
                                         className="object-cover"
+                                        priority
                                     />
                                 </div>
-                                {/* Product Image */}
-                                <div className="relative h-full w-full">
-                                    <Image
-                                        src={product.image}
-                                        alt={product.name}
-                                        fill
-                                        className="object-contain p-4 transition-transform duration-300 group-hover:scale-110"
-                                    />
-                                </div>
+                                {/* Product Image - On top of background */}
+                                {product.image && (
+                                    <div className="relative z-10 h-full w-full">
+                                        <Image
+                                            src={product.image}
+                                            alt={product.name}
+                                            fill
+                                            className="object-contain p-4 transition-transform duration-300 group-hover:scale-110"
+                                        />
+                                    </div>
+                                )}
                             </div>
 
                             {/* Product Name */}
-                            <h3 className="mb-2 text-lg font-semibold text-[#732C03]">
+                            <h3 className="mb-2 text-lg font-semibold text-brown-1">
                                 {product.name}
                             </h3>
 
@@ -137,7 +140,7 @@ export function Releases() {
 
                             {/* Price */}
                             <div className="flex items-center gap-2">
-                                <span className="text-xl font-bold text-[#732C03]">
+                                <span className="text-xl font-bold text-brown-1">
                                     ${product.price}
                                 </span>
                                 {product.originalPrice && (
@@ -145,7 +148,7 @@ export function Releases() {
                                         <span className="text-sm text-gray-500 line-through">
                                             ${product.originalPrice}
                                         </span>
-                                        <span className="rounded bg-[#FF355A] px-2 py-0.5 text-xs font-semibold text-white">
+                                        <span className="rounded bg-red-1 px-2 py-0.5 text-xs font-semibold text-white">
                                             -{product.discount}%
                                         </span>
                                     </>
@@ -159,7 +162,7 @@ export function Releases() {
                 <div className="flex justify-center">
                     <Link
                         href="/"
-                        className="rounded-full bg-[#00C4D8] px-8 py-3 text-base font-medium text-white transition-all duration-300 hover:bg-[#00B4C8] hover:scale-105"
+                        className="rounded-full bg-blue-1 px-8 py-3 text-base font-medium text-white transition-all duration-300 hover:bg-blue-2 hover:scale-105"
                     >
                         Ver todos
                     </Link>

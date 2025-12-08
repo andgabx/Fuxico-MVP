@@ -41,6 +41,20 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Custom Color Palette */
+  --color-blue-1: #00C4D8;
+  --color-blue-2: #58D3E0;
+  --color-brown-1: #732C03;
+  --color-brown-2: #9E5B34;
+  --color-red-1: #FF355A;
+  --color-orange-1: #FF6600;
+  --color-pink-1: #FF90A5;
+  --color-orange-2: #FF9955;
+  --color-yellow-1: #FFA500;
+  --color-yellow-2: #FFC761;
+  --color-cream-1: #FFE1BE;
+  --color-cream-2: #FFF4E6;
 }
 
 :root {

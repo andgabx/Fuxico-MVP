@@ -12,9 +12,15 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "./ui/sheet";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 
 export function Header() {
     const [isOpen, setIsOpen] = useState(false);
+    const [catalogOpen, setCatalogOpen] = useState(false);
+    const [mobileCatalogOpen, setMobileCatalogOpen] = useState(false);
+    const [activeCatalogItem, setActiveCatalogItem] = useState<string | null>(
+        null
+    );
 
     const navItems = [
         { href: "/", label: "Catálogo", hasDropdown: true },
@@ -23,6 +29,21 @@ export function Header() {
         { href: "/", label: "Clube" },
         { href: "/", label: "Parceiros" },
         { href: "/", label: "Contato" },
+    ];
+
+    const catalogItems = [
+        { id: "lancamentos", label: "Lançamentos", href: "/lancamentos" },
+        { id: "blindboxes", label: "Blindboxes", href: "/blindboxes" },
+        {
+            id: "colecao-fuxico",
+            label: "Coleção Fuxico",
+            href: "/colecao-fuxico",
+        },
+        {
+            id: "colecao-parceiros",
+            label: "Coleção Parceiros",
+            href: "/colecao-parceiros",
+        },
     ];
 
     return (
@@ -76,19 +97,79 @@ export function Header() {
 
                                     {/* Mobile Navigation */}
                                     <nav className="flex flex-col space-y-3">
-                                        {navItems.map((item) => (
-                                            <Link
-                                                key={item.label}
-                                                href={item.href}
-                                                onClick={() => setIsOpen(false)}
-                                                className="flex items-center justify-between py-2 text-base font-medium text-[#732C03] hover:text-[#FF355A] transition-colors"
-                                            >
-                                                <span>{item.label}</span>
-                                                {item.hasDropdown && (
-                                                    <ChevronDown className="h-4 w-4" />
-                                                )}
-                                            </Link>
-                                        ))}
+                                        {navItems.map((item) => {
+                                            if (
+                                                item.hasDropdown &&
+                                                item.label === "Catálogo"
+                                            ) {
+                                                return (
+                                                    <div key={item.label}>
+                                                        <button
+                                                            onClick={() =>
+                                                                setMobileCatalogOpen(
+                                                                    !mobileCatalogOpen
+                                                                )
+                                                            }
+                                                            className="flex w-full items-center justify-between py-2 text-base font-medium text-[#732C03] hover:text-[#FF355A] hover:font-bold transition-colors"
+                                                        >
+                                                            <span>
+                                                                {item.label}
+                                                            </span>
+                                                            <ChevronDown
+                                                                className={`h-4 w-4 transition-transform ${
+                                                                    mobileCatalogOpen
+                                                                        ? "rotate-180"
+                                                                        : ""
+                                                                }`}
+                                                            />
+                                                        </button>
+                                                        {mobileCatalogOpen && (
+                                                            <div className="mt-2 ml-4 flex flex-col space-y-2">
+                                                                {catalogItems.map(
+                                                                    (
+                                                                        catalogItem
+                                                                    ) => (
+                                                                        <Link
+                                                                            key={
+                                                                                catalogItem.id
+                                                                            }
+                                                                            href={
+                                                                                catalogItem.href
+                                                                            }
+                                                                            onClick={() => {
+                                                                                setIsOpen(
+                                                                                    false
+                                                                                );
+                                                                                setMobileCatalogOpen(
+                                                                                    false
+                                                                                );
+                                                                            }}
+                                                                            className="py-2 text-sm font-medium text-[#732C03] hover:text-[#FF355A] hover:font-bold transition-colors"
+                                                                        >
+                                                                            {
+                                                                                catalogItem.label
+                                                                            }
+                                                                        </Link>
+                                                                    )
+                                                                )}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                );
+                                            }
+                                            return (
+                                                <Link
+                                                    key={item.label}
+                                                    href={item.href}
+                                                    onClick={() =>
+                                                        setIsOpen(false)
+                                                    }
+                                                    className="flex items-center justify-between py-2 text-base font-medium text-[#732C03] hover:text-[#FF355A] hover:font-bold transition-colors"
+                                                >
+                                                    <span>{item.label}</span>
+                                                </Link>
+                                            );
+                                        })}
                                     </nav>
 
                                     <Separator className="bg-[#732C03]" />
@@ -98,7 +179,7 @@ export function Header() {
                                         <Link
                                             href="/login"
                                             onClick={() => setIsOpen(false)}
-                                            className="flex items-center gap-3 py-2 text-base font-medium text-[#732C03] hover:text-[#FF355A] transition-colors"
+                                            className="flex items-center gap-3 py-2 text-base font-medium text-[#732C03] hover:text-[#FF355A] hover:font-bold transition-colors"
                                         >
                                             <User className="h-5 w-5" />
                                             <span>Entrar/Cadastrar</span>
@@ -106,7 +187,7 @@ export function Header() {
                                         <Link
                                             href="/cart"
                                             onClick={() => setIsOpen(false)}
-                                            className="flex items-center gap-3 py-2 text-base font-medium text-[#732C03] hover:text-[#FF355A] transition-colors"
+                                            className="flex items-center gap-3 py-2 text-base font-medium text-[#732C03] hover:text-[#FF355A] hover:font-bold transition-colors"
                                         >
                                             <ShoppingCart className="h-5 w-5" />
                                             <span>Carrinho</span>
@@ -146,7 +227,7 @@ export function Header() {
                             {/* Login/Register - Desktop */}
                             <Link
                                 href="/login"
-                                className="hidden sm:flex items-center gap-2 text-sm font-medium text-black hover:text-gray-600"
+                                className="hidden sm:flex items-center gap-2 text-sm font-medium text-black hover:text-[#FF355A] hover:font-bold transition-colors"
                             >
                                 <User className="h-5 w-5" />
                                 <span className="hidden md:inline">
@@ -157,7 +238,7 @@ export function Header() {
                             {/* Shopping Cart */}
                             <Link
                                 href="/cart"
-                                className="flex items-center gap-2 text-sm font-medium text-black hover:text-gray-600 relative"
+                                className="flex items-center gap-2 text-sm font-medium text-black hover:text-[#FF355A] hover:font-bold transition-colors relative"
                             >
                                 <ShoppingCart className="h-5 w-5" />
                                 <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-gray-200 text-xs font-medium">
@@ -175,20 +256,69 @@ export function Header() {
 
                     {/* Navigation Menu - Desktop Only */}
                     <nav className="hidden lg:flex items-center justify-center gap-8 px-6 py-4">
-                        {navItems.map((item) => (
-                            <Link
-                                key={item.label}
-                                href={item.href}
-                                className={`flex items-center gap-1 text-sm font-body font-medium text-[#732C03] hover:text-gray-600 ${
-                                    item.hasDropdown ? "" : ""
-                                }`}
-                            >
-                                {item.label}
-                                {item.hasDropdown && (
-                                    <ChevronDown className="h-4 w-4" />
-                                )}
-                            </Link>
-                        ))}
+                        {navItems.map((item) => {
+                            if (item.hasDropdown && item.label === "Catálogo") {
+                                return (
+                                    <Popover
+                                        key={item.label}
+                                        open={catalogOpen}
+                                        onOpenChange={setCatalogOpen}
+                                    >
+                                        <PopoverTrigger asChild>
+                                            <button className="flex items-center gap-1 text-sm font-body font-medium text-[#732C03] hover:text-[#FF355A] hover:font-bold transition-colors">
+                                                {item.label}
+                                                <ChevronDown className="h-4 w-4" />
+                                            </button>
+                                        </PopoverTrigger>
+                                        <PopoverContent
+                                            className="w-[280px] p-2 bg-white rounded-lg shadow-lg border border-gray-200"
+                                            align="start"
+                                        >
+                                            <div className="flex flex-col gap-1">
+                                                {catalogItems.map((item) => (
+                                                    <Link
+                                                        key={item.id}
+                                                        href={item.href}
+                                                        onClick={() => {
+                                                            setCatalogOpen(
+                                                                false
+                                                            );
+                                                        }}
+                                                        onMouseEnter={() =>
+                                                            setActiveCatalogItem(
+                                                                item.id
+                                                            )
+                                                        }
+                                                        onMouseLeave={() =>
+                                                            setActiveCatalogItem(
+                                                                null
+                                                            )
+                                                        }
+                                                        className={`px-4 py-3 rounded-md text-sm font-medium transition-colors ${
+                                                            activeCatalogItem ===
+                                                            item.id
+                                                                ? "text-[#FF355A] bg-[#FFE1BE] font-bold"
+                                                                : "text-[#732C03] hover:bg-[#FFF4E6] hover:text-[#FF355A] hover:font-bold"
+                                                        }`}
+                                                    >
+                                                        {item.label}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </PopoverContent>
+                                    </Popover>
+                                );
+                            }
+                            return (
+                                <Link
+                                    key={item.label}
+                                    href={item.href}
+                                    className="flex items-center gap-1 text-sm font-body font-medium text-[#732C03] hover:text-[#FF355A] hover:font-bold transition-colors"
+                                >
+                                    {item.label}
+                                </Link>
+                            );
+                        })}
                     </nav>
                 </div>
             </div>
