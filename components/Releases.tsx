@@ -17,14 +17,14 @@ interface Product {
 const products: Product[] = [
     {
         id: 1,
-        name: "Sketchbook",
+        name: "Caderninho Fuxico",
         image: "/assets/releases/sketchbook.png",
         rating: 4.5,
         price: 120,
     },
     {
         id: 2,
-        name: "Camiseta",
+        name: "Ecobag Fuxico",
         image: "/assets/releases/bag.png",
         rating: 3.5,
         price: 240,
@@ -33,14 +33,14 @@ const products: Product[] = [
     },
     {
         id: 3,
-        name: "Caneca",
+        name: "Caneca Fuxico",
         image: "/assets/releases/cup.png",
         rating: 4.5,
         price: 180,
     },
     {
         id: 4,
-        name: "Camiseta",
+        name: "Camiseta Fuxico",
         image: "/assets/releases/tshirt.png",
         rating: 4.5,
         price: 130,
@@ -117,12 +117,13 @@ export function Releases() {
                                 </div>
                                 {/* Product Image - On top of background */}
                                 {product.image && (
-                                    <div className="relative z-10 h-full w-full">
+                                    <div className="relative z-10 flex h-full w-full items-center justify-center">
                                         <Image
                                             src={product.image}
                                             alt={product.name}
-                                            fill
-                                            className="object-contain p-4 transition-transform duration-300 group-hover:scale-110"
+                                            width={200}
+                                            height={200}
+                                            className="h-[80%] w-[80%] object-contain transition-transform duration-300 group-hover:scale-110"
                                         />
                                     </div>
                                 )}
@@ -141,7 +142,7 @@ export function Releases() {
                             {/* Price */}
                             <div className="flex items-center gap-2">
                                 <span className="text-xl font-bold text-brown-1">
-                                    ${product.price}
+                                    R${product.price}
                                 </span>
                                 {product.originalPrice && (
                                     <>

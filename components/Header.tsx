@@ -47,7 +47,6 @@ export function Header() {
     ];
 
     return (
-        <header className="">
             <div className="mx-auto max-w-[90vw] px-4 sm:px-6 lg:px-4 py-4">
                 {/* White Container */}
                 <div className="rounded-2xl bg-[#FAE7D5]">
@@ -322,6 +321,5 @@ export function Header() {
                     </nav>
                 </div>
             </div>
-        </header>
     );
 }

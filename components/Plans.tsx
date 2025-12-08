@@ -19,7 +19,7 @@ const plans: Plan[] = [
     {
         id: 1,
         name: "Plano Bisbilhotice",
-        price: "$200,00",
+        price: "R$60,00",
         description:
             "O começo perfeito para quem ama surpresas e quer entrar no jogo!",
         buttonColor: "#00C4D8",
@@ -33,7 +33,7 @@ const plans: Plan[] = [
     {
         id: 2,
         name: "Plano Mexerico",
-        price: "$340,00",
+        price: "R$90,00",
         description:
             "Surpresas trimestrais + frete grátis = combo perfeito para quem não gosta de ficar por fora!",
         buttonColor: "#FF6600",
@@ -48,7 +48,7 @@ const plans: Plan[] = [
     {
         id: 3,
         name: "Plano Fuxico",
-        price: "$450,00",
+        price: "R$120,00",
         description:
             "O nível máximo da aventura: surpresas, brindes e aquele gostinho de encontrar um tesouro especial!",
         buttonColor: "#FF355A",

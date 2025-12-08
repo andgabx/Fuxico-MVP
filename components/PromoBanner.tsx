@@ -31,7 +31,6 @@ export function PromoBanner() {
                 </div>
             </div>
 
-            <div className="h-1 w-full bg-[#FF6600]"></div>
         </div>
     );
 }

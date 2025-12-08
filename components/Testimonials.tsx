@@ -14,32 +14,38 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
     {
         id: 1,
-        name: "Sarah M.",
-        text: "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+        name: "Acácio Espíndola",
+        text: "Fiquei impressionada com a qualidade e o estilo dos produtos que recebi da Fuxico. Desde peças casuais até itens mais elaborados, cada compra superou minhas expectativas. Recomendo de olhos fechados!",
         rating: 5,
     },
     {
         id: 2,
-        name: "Alex K.",
-        text: "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
+        name: "Hélio Cipriano",
+        text: "Loja incrível, nunca para de surpreender. Os produtos são únicos e têm uma qualidade excepcional. Já comprei várias vezes e sempre fico satisfeito. O atendimento também é nota 10!",
         rating: 5,
     },
     {
         id: 3,
-        name: "James L.",
-        text: "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
+        name: "Sérgio Frederico",
+        text: "Como alguém que sempre procura peças únicas e diferentes, fiquei encantado ao descobrir a Fuxico. A seleção de produtos é diversa e está sempre alinhada com as últimas tendências. Adorei!",
         rating: 5,
     },
     {
         id: 4,
-        name: "Moo",
-        text: "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
+        name: "Cecília Santos",
+        text: "A qualidade e atenção aos detalhes em cada peça é impressionante. Já recebi vários elogios sobre minhas compras da Fuxico! Os produtos são realmente especiais e únicos.",
         rating: 5,
     },
     {
         id: 5,
-        name: "Maria S.",
-        text: "The quality and attention to detail in every piece is outstanding. I've received so many compliments on my purchases from Shop.co!",
+        name: "Rafaela Oliveira",
+        text: "Encontrar produtos que combinam com meu estilo pessoal sempre foi um desafio, até descobrir a Fuxico. A variedade de opções é incrível e atende diferentes gostos e ocasiões. Super recomendo!",
+        rating: 5,
+    },
+    {
+        id: 6,
+        name: "Marcos Antônio",
+        text: "Comprei um presente para minha esposa e ela amou! A qualidade dos materiais e o acabamento são impecáveis. Definitivamente voltarei a comprar aqui.",
         rating: 5,
     },
 ];
@@ -69,7 +75,7 @@ export function Testimonials() {
             <div className="mx-auto w-full max-w-[90vw] px-[4vw]">
                 {/* Header with Title and Navigation */}
                 <div className="mb-8 flex items-center justify-between">
-                    <h2 className="text-4xl font-bold text-[#8B4513] font-hero md:text-5xl lg:text-6xl">
+                    <h2 className="text-4xl font-bold text-brown-1 font-hero md:text-5xl lg:text-6xl">
                         O QUE NOSSOS CLIENTES DIZEM?
                     </h2>
 
@@ -77,23 +83,23 @@ export function Testimonials() {
                     <div className="flex items-center gap-3">
                         <button
                             onClick={prevTestimonial}
-                            className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FF6600] transition-all duration-300 hover:scale-110 hover:opacity-90"
+                            className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-1 transition-all duration-300 hover:scale-110 hover:opacity-90"
                             aria-label="Depoimento anterior"
                         >
-                            <ArrowLeft className="h-5 w-5 text-[#FFE1BE]" />
+                            <ArrowLeft className="h-5 w-5 text-cream-2" />
                         </button>
                         <button
                             onClick={nextTestimonial}
-                            className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FF6600] transition-all duration-300 hover:scale-110 hover:opacity-90"
+                            className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-1 transition-all duration-300 hover:scale-110 hover:opacity-90"
                             aria-label="Próximo depoimento"
                         >
-                            <ArrowRight className="h-5 w-5 text-[#FFE1BE]" />
+                            <ArrowRight className="h-5 w-5 text-cream-2" />
                         </button>
                     </div>
                 </div>
 
                 {/* Testimonials Cards */}
-                <div className="relative flex gap-6 overflow-hidden rounded-2xl">
+                <div className="relative flex gap-6">
                     {visibleTestimonials.map((testimonial, index) => (
                         <motion.div
                             key={`${testimonial.id}-${currentIndex}`}
@@ -117,7 +123,7 @@ export function Testimonials() {
                                 damping: 15,
                                 delay: index * 0.15,
                             }}
-                            className="min-w-[300px] flex-1 rounded-2xl overflow-hidden bg-[#FFF4E6] p-6 shadow-lg"
+                            className="min-w-[300px] flex-1 rounded-2xl overflow-hidden bg-cream-2 p-6 shadow-lg"
                         >
                             {/* Stars */}
                             <motion.div
@@ -176,7 +182,7 @@ export function Testimonials() {
                                 }}
                             >
                                 <motion.span
-                                    className="text-lg font-semibold text-black"
+                                    className="text-lg font-semibold text-brown-1"
                                     whileHover={{ scale: 1.1 }}
                                 >
                                     {testimonial.name}
@@ -203,14 +209,15 @@ export function Testimonials() {
                                         rotate: 360,
                                         transition: { duration: 0.3 },
                                     }}
+                                    className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-1"
                                 >
-                                    <Check className="h-5 w-5 text-green-500" />
+                                    <Check className="h-3 w-3 text-white" />
                                 </motion.div>
                             </motion.div>
 
                             {/* Testimonial Text */}
                             <motion.p
-                                className="text-sm leading-relaxed text-gray-700"
+                                className="text-sm leading-relaxed text-brown-1"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{
