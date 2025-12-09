@@ -71,7 +71,7 @@ export function Testimonials() {
     }
 
     return (
-        <section className="w-full  py-[8vh]">
+        <section className="w-full bg-cream-1 py-[8vh]">
             <div className="mx-auto w-full max-w-[90vw] px-[4vw]">
                 {/* Header with Title and Navigation */}
                 <div className="mb-8 flex items-center justify-between">

@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Pencil, User, ChevronDown } from "lucide-react";
+import { User } from "lucide-react";
 import Link from "next/link";
 import {
     Select,
@@ -11,10 +11,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import {
-    addressSchema,
-    type AddressFormData,
-} from "@/lib/schemas/register";
+import { addressSchema, type AddressFormData } from "@/lib/schemas/register";
 
 interface Step2AddressProps {
     onNext: (data: AddressFormData) => void;
@@ -22,9 +19,33 @@ interface Step2AddressProps {
 }
 
 const states = [
-    "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA",
-    "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN",
-    "RS", "RO", "RR", "SC", "SP", "SE", "TO"
+    "AC",
+    "AL",
+    "AP",
+    "AM",
+    "BA",
+    "CE",
+    "DF",
+    "ES",
+    "GO",
+    "MA",
+    "MT",
+    "MS",
+    "MG",
+    "PA",
+    "PB",
+    "PR",
+    "PE",
+    "PI",
+    "RJ",
+    "RN",
+    "RS",
+    "RO",
+    "RR",
+    "SC",
+    "SP",
+    "SE",
+    "TO",
 ];
 
 export function Step2Address({ onNext, onBack }: Step2AddressProps) {
@@ -47,11 +68,13 @@ export function Step2Address({ onNext, onBack }: Step2AddressProps) {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-1 w-full">
             <div className="flex flex-1 flex-col rounded-2xl bg-[#FFF4E6] p-8 shadow-lg w-full">
-                {/* Header Banner */}
-                <div className="mb-6 flex items-center justify-between">
-                    <div className="flex items-center gap-2 rounded-lg bg-[#FF355A] px-4 py-2">
-                        <User className="h-5 w-5 text-white" />
-                        <span className="font-bold text-white">DADOS (2/2)</span>
+                {/* Header Banner - DADOS (2/2) */}
+                <div className="mb-6 flex items-center justify-center">
+                    <div className="flex items-center justify-center gap-2 rounded-lg bg-[#FFB6C1] px-6 py-3 w-full">
+                        <User className="h-5 w-5 text-[#FFD7DE]" />
+                        <span className="text-lg font-bold text-red-1">
+                            DADOS (2/2)
+                        </span>
                     </div>
                 </div>
 
@@ -182,7 +205,9 @@ export function Step2Address({ onNext, onBack }: Step2AddressProps) {
                             </label>
                             <Select
                                 value={selectedState}
-                                onValueChange={(value) => setValue("state", value)}
+                                onValueChange={(value) =>
+                                    setValue("state", value)
+                                }
                             >
                                 <SelectTrigger
                                     className={`w-full ${
@@ -213,15 +238,23 @@ export function Step2Address({ onNext, onBack }: Step2AddressProps) {
                             </label>
                             <div className="relative">
                                 <Select
-                                    onValueChange={(value) => setValue("city", value)}
+                                    onValueChange={(value) =>
+                                        setValue("city", value)
+                                    }
                                 >
                                     <SelectTrigger className="w-full border-gray-300">
                                         <SelectValue placeholder="Selecione cidade" />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        <SelectItem value="recife">Recife</SelectItem>
-                                        <SelectItem value="sao-paulo">São Paulo</SelectItem>
-                                        <SelectItem value="rio">Rio de Janeiro</SelectItem>
+                                        <SelectItem value="recife">
+                                            Recife
+                                        </SelectItem>
+                                        <SelectItem value="sao-paulo">
+                                            São Paulo
+                                        </SelectItem>
+                                        <SelectItem value="rio">
+                                            Rio de Janeiro
+                                        </SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
@@ -245,7 +278,8 @@ export function Step2Address({ onNext, onBack }: Step2AddressProps) {
                             }`}
                         />
                         <div className="mt-1 text-right text-xs text-gray-500">
-                            {watch("additionalInfo")?.length || 0}/255 caracteres
+                            {watch("additionalInfo")?.length || 0}/255
+                            caracteres
                         </div>
                         {errors.additionalInfo && (
                             <p className="mt-1 text-sm text-[#FF355A]">

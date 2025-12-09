@@ -1,6 +1,6 @@
 "use client";
 
-import { Pencil, CheckCircle2 } from "lucide-react";
+import { Pencil, User } from "lucide-react";
 import Link from "next/link";
 import { planOptions } from "@/lib/schemas/register";
 import type {
@@ -26,47 +26,39 @@ export function Step4Confirm({ onNext, formData }: Step4ConfirmProps) {
         : null;
     return (
         <div className="flex flex-1 flex-col rounded-2xl bg-[#FFF4E6] p-8 shadow-lg w-full">
-            {/* Header Banner */}
+            {/* Header Banner - DADOS (1/2) */}
             <div className="mb-6 flex items-center justify-center">
-                <div className="flex items-center gap-2 rounded-lg bg-[#FF355A] px-6 py-3">
-                    <CheckCircle2 className="h-6 w-6 text-white" />
-                    <span className="text-xl font-bold text-white">
-                        CONFIRMAR
+                <div className="flex items-center gap-2 rounded-lg bg-[#FFB6C1] px-6 py-3">
+                    <User className="h-5 w-5 text-[#FFD7DE]" />
+                    <span className="text-lg font-bold text-red-1">
+                        DADOS (1/2)
                     </span>
                 </div>
             </div>
 
-            {/* Order Summary */}
-            <div className="mb-6 rounded-lg bg-[#FFE1BE] p-6">
-                <h3 className="mb-4 text-lg font-bold text-[#732C03]">
-                    {selectedPlan?.label.toUpperCase() || "PLANO"}
-                </h3>
-                <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-                    <p className="text-sm text-[#732C03]">
-                        BlindBox exclusiva a cada trimestre, acesso completo à
-                        nossa comunidade e frete 100% grátis para todo o Brasil
-                    </p>
-                    <span className="font-bold text-[#FF355A]">
-                        {selectedPlan?.price || "R$90/mês"}
-                    </span>
+            {/* Plan Selection Section */}
+            <div className="mb-6">
+                <div className="mb-3 flex items-center justify-between">
+                    <h3 className="text-lg font-bold text-[#732C03]">
+                        Escolha o plano
+                    </h3>
+                    <Link
+                        href="#"
+                        className="inline-flex items-center gap-1 text-sm font-medium text-[#FF355A] hover:text-[#732C03] transition-colors"
+                    >
+                        <span>Editar</span>
+                        <Pencil className="h-4 w-4" />
+                    </Link>
                 </div>
-
-                <div className="space-y-2 border-t border-[#732C03]/20 pt-4">
-                    <div className="flex justify-between text-sm text-[#732C03]">
-                        <span>Descrição</span>
-                        <span>Valor</span>
-                    </div>
-                    <div className="flex justify-between font-medium text-[#732C03]">
-                        <span>Subtotal</span>
-                        <span>R$90,00</span>
-                    </div>
-                    <div className="flex justify-between font-medium text-[#732C03]">
-                        <span>Taxa de entrega</span>
-                        <span>R$00,00</span>
-                    </div>
-                    <div className="flex justify-between border-t border-[#732C03]/20 pt-2 text-lg font-bold text-[#FF355A]">
-                        <span>Total</span>
-                        <span>R$90,00</span>
+                <div className="rounded-lg border-2 border-[#FF6600] bg-white p-4">
+                    <div className="flex items-center justify-between">
+                        <span className="font-bold text-[#732C03]">
+                            {selectedPlan?.label.toUpperCase() ||
+                                "PLANO MEXERICO"}
+                        </span>
+                        <span className="font-bold text-[#732C03]">
+                            {selectedPlan?.price || "R$90/mês"}
+                        </span>
                     </div>
                 </div>
             </div>

@@ -28,27 +28,8 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${poppins.variable} ${londrinaSolid.variable} antialiased relative bg-[#FFE1BE]`}
+                className={`${poppins.variable} ${londrinaSolid.variable} antialiased relative`}
             >
-                {/* Background Layer - Apenas na área bege */}
-                <div className="fixed bottom-0 left-0 z-0 pointer-events-none bg-[#FFE1BE]">
-                    <div
-                        className="opacity-30"
-                        style={{
-                            transform: "rotate(45deg)",
-                            transformOrigin: "bottom left",
-                        }}
-                    >
-                        <Image
-                            src="/layerbg.png"
-                            alt=""
-                            width={800}
-                            height={800}
-                            className="object-contain"
-                            priority
-                        />
-                    </div>
-                </div>
                 <div className="relative z-10">{children}</div>
             </body>
         </html>

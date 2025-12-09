@@ -116,10 +116,10 @@ export function Hero() {
     const canGoNext = currentIndex < heroSlides.length - 1;
 
     return (
-        <section className="relative w-full overflow-hidden">
-            <Header />
-
+        <section className="relative w-full overflow-hidden bg-cream-1">
             <div className="relative">
+                <Header />
+
                 {/* Carousel Container */}
                 <div className="relative h-[70vh] w-full overflow-hidden sm:h-[80vh] lg:h-[90vh]">
                     <AnimatePresence mode="wait">
@@ -145,7 +145,7 @@ export function Hero() {
                             {/* Content Container */}
                             <div className="relative z-10 flex h-full items-center">
                                 {/* Left Side - Text Content */}
-                                <div className="flex-1 space-y-6 px-8 sm:px-12 lg:px-16">
+                                <div className="flex-1 space-y-6 px-8 sm:px-12 lg:px-16 sm:flex-1 lg:flex-1">
                                     <motion.h1
                                         initial={{ opacity: 0, x: -50 }}
                                         animate={{ opacity: 1, x: 0 }}
@@ -191,8 +191,8 @@ export function Hero() {
                                     </motion.div>
                                 </div>
 
-                                {/* Right Side - Overlay Image */}
-                                <div className="flex-1 flex h-full items-end justify-end pr-0 sm:pr-0 lg:pr-0 pb-0">
+                                {/* Right Side - Overlay Image - Hidden on Mobile */}
+                                <div className="hidden sm:flex flex-1 h-full items-end justify-end pr-0 sm:pr-0 lg:pr-0 pb-0">
                                     <motion.div
                                         initial={{ opacity: 0, x: 50 }}
                                         animate={{ opacity: 1, x: 0 }}

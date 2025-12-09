@@ -10,7 +10,7 @@ export const planOptions = [
 // Step 1: Personal Data Schema
 export const personalDataSchema = z.object({
     plan: z.enum(["bisbilhotice", "mexerico", "fuxico"], {
-        required_error: "Por favor, selecione um plano",
+        message: "Por favor, selecione um plano",
     }),
     email: z
         .string()
@@ -78,7 +78,7 @@ export const addressSchema = z.object({
 // Step 3: Payment Schema
 export const paymentSchema = z.object({
     paymentMethod: z.enum(["credit", "pix"], {
-        required_error: "Por favor, selecione um método de pagamento",
+        message: "Por favor, selecione um método de pagamento",
     }),
     cardNumber: z
         .string()

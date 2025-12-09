@@ -9,7 +9,8 @@ export function Footer() {
     const year = new Date().getFullYear();
 
     return (
-        <footer className="bg-[#732C03] rounded-t-4xl">
+        <section className="w-full bg-cream-1">
+        <footer className="bg-brown-1 rounded-t-4xl">
             <div className="mx-auto w-full max-w-[90vw] px-[4vw] sm:px-[6vw] lg:px-[8vw] pt-[4vh]">
                 {/* Newsletter Subscription Section */}
                 <div className="rounded-2xl bg-[#9E5B34] px-[2vw] py-8 shadow-lg">
@@ -231,5 +232,6 @@ export function Footer() {
                 </div>
             </div>
         </footer>
+        </section>
     );
 }

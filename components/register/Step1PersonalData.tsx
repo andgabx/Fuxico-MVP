@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Eye, EyeOff, Pencil, User } from "lucide-react";
+import { Eye, EyeOff, User } from "lucide-react";
 import Link from "next/link";
 import {
     Select,
@@ -50,29 +50,22 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-1 w-full">
-            <div className="flex flex-1 flex-col rounded-2xl bg-[#FFF4E6] p-8 shadow-lg w-full">
-                {/* Header Banner */}
-                <div className="mb-6 flex items-center justify-between">
-                    <div className="flex items-center gap-2 rounded-lg bg-[#FF355A] px-4 py-2">
-                        <User className="h-5 w-5 text-white" />
-                        <span className="font-bold text-white">
+            <div className="flex flex-1 flex-col rounded-2xl bg-cream-2 p-8 shadow-lg w-full">
+                {/* Header Banner - DADOS (1/2) */}
+                <div className="mb-6 flex items-center justify-center">
+                    <div className="flex items-center justify-center gap-2 rounded-lg bg-pink-1 px-6 py-3 w-full">
+                        <User className="h-5 w-5 fill-red-1 text-red-1" />
+                        <span className="text-lg font-bold text-red-1">
                             DADOS (1/2)
                         </span>
                     </div>
-                    <Link
-                        href="#"
-                        className="flex items-center gap-1 text-[#FF355A] hover:text-[#732C03] transition-colors"
-                    >
-                        <Pencil className="h-4 w-4" />
-                        <span className="text-sm font-medium">Editar</span>
-                    </Link>
                 </div>
 
                 {/* Choose Plan Section */}
                 <div className="mb-8">
-                    <h2 className="mb-4 text-xl font-bold text-[#732C03]">
+                    <div className="mb-4 text-xl font-bold text-brown-1">
                         Escolha o plano
-                    </h2>
+                    </div>
                     <Select
                         value={selectedPlan}
                         onValueChange={(value) =>
@@ -82,21 +75,21 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
                             )
                         }
                     >
-                        <SelectTrigger className="w-full rounded-lg border-2 border-[#FF6600] bg-white px-4 py-3 h-auto shadow-none hover:border-[#FF6600] focus:border-[#FF6600]">
+                        <SelectTrigger className="w-full rounded-lg border-2 border-orange-1 bg-white px-4 py-3 h-auto shadow-none hover:border-orange-1 focus:border-orange-1">
                             <div className="flex w-full items-center justify-between">
                                 {selectedPlanData ? (
                                     <>
-                                        <span className="text-[#732C03] font-semibold">
+                                        <span className="text-red-1 font-semibold">
                                             {selectedPlanData.label.toUpperCase()}
                                         </span>
-                                        <span className="text-[#732C03] font-semibold">
+                                        <span className="text-red-1 font-semibold">
                                             {selectedPlanData.price}
                                         </span>
                                     </>
                                 ) : (
                                     <SelectValue
                                         placeholder="Selecione um plano"
-                                        className="text-gray-400"
+                                        className="text-red-1"
                                     />
                                 )}
                             </div>
@@ -109,10 +102,10 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
                                     className="cursor-pointer"
                                 >
                                     <div className="flex items-center justify-between w-full">
-                                        <span className="text-[#732C03] font-semibold">
+                                        <span className="text-red-1 font-semibold">
                                             {plan.label.toUpperCase()}
                                         </span>
-                                        <span className="text-[#732C03] font-semibold ml-4">
+                                        <span className="text-red-1 font-semibold ml-4">
                                             {plan.price}
                                         </span>
                                     </div>
@@ -121,7 +114,7 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
                         </SelectContent>
                     </Select>
                     {errors.plan && (
-                        <p className="mt-2 text-sm text-[#FF355A]">
+                        <p className="mt-2 text-sm text-red-1">
                             {errors.plan.message}
                         </p>
                     )}
@@ -129,16 +122,16 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
 
                 {/* Personal Data Section */}
                 <div>
-                    <h2 className="mb-4 text-xl font-bold text-[#732C03]">
+                    <div className="mb-4 text-xl font-bold text-brown-1">
                         Dados pessoais
-                    </h2>
+                    </div>
                     <div className="mb-4">
-                        <span className="text-sm text-[#732C03]">
+                        <span className="text-sm text-brown-1">
                             Já possui conta?{" "}
                         </span>
                         <Link
-                            href="/login"
-                            className="text-sm font-medium text-[#FF355A] hover:underline"
+                            href="/"
+                            className="text-sm font-medium text-red-1 hover:underline"
                         >
                             Clique aqui para entrar
                         </Link>
@@ -147,21 +140,21 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
                     <div className="space-y-4">
                         {/* Email */}
                         <div>
-                            <label className="mb-2 block text-sm font-medium text-[#732C03]">
+                            <label className="mb-2 block text-sm font-medium text-brown-1">
                                 E-mail
                             </label>
                             <input
                                 type="email"
                                 placeholder="Insira seu e-mail"
                                 {...register("email")}
-                                className={`w-full rounded-lg border px-4 py-3 text-[#732C03] placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
+                                className={`w-full rounded-lg border px-4 py-3 bg-cream-3 text-brown-1 placeholder:text-brown-1 focus:outline-none focus:ring-2 ${
                                     errors.email
-                                        ? "border-[#FF355A] focus:ring-[#FF355A]/20"
-                                        : "border-gray-300 focus:border-[#FF355A] focus:ring-[#FF355A]/20"
+                                        ? "border-red-1 focus:ring-red-1/20"
+                                        : "border-gray-300 focus:border-red-1 focus:ring-red-1/20"
                                 }`}
                             />
                             {errors.email && (
-                                <p className="mt-1 text-sm text-[#FF355A]">
+                                <p className="mt-1 text-sm text-red-1">
                                     {errors.email.message}
                                 </p>
                             )}
@@ -169,21 +162,21 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
 
                         {/* CPF */}
                         <div>
-                            <label className="mb-2 block text-sm font-medium text-[#732C03]">
+                            <label className="mb-2 block text-sm font-medium text-brown-1">
                                 CPF
                             </label>
                             <input
                                 type="text"
                                 placeholder="000.000.000-00"
                                 {...register("cpf")}
-                                className={`w-full rounded-lg border px-4 py-3 text-[#732C03] placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
+                                className={`w-full rounded-lg border px-4 py-3 bg-cream-3 text-brown-1 placeholder:text-brown-1 focus:outline-none focus:ring-2 ${
                                     errors.cpf
-                                        ? "border-[#FF355A] focus:ring-[#FF355A]/20"
-                                        : "border-gray-300 focus:border-[#FF355A] focus:ring-[#FF355A]/20"
+                                        ? "border-red-1 focus:ring-red-1/20"
+                                        : "border-gray-300 focus:border-red-1 focus:ring-red-1/20"
                                 }`}
                             />
                             {errors.cpf && (
-                                <p className="mt-1 text-sm text-[#FF355A]">
+                                <p className="mt-1 text-sm text-red-1">
                                     {errors.cpf.message}
                                 </p>
                             )}
@@ -192,41 +185,41 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
                         {/* Name and Surname */}
                         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                             <div>
-                                <label className="mb-2 block text-sm font-medium text-[#732C03]">
+                                <label className="mb-2 block text-sm font-medium text-brown-1">
                                     Nome
                                 </label>
                                 <input
                                     type="text"
                                     placeholder="Insira o seu nome"
                                     {...register("firstName")}
-                                    className={`w-full rounded-lg border px-4 py-3 text-[#732C03] placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
+                                    className={`w-full rounded-lg border px-4 py-3 bg-cream-3 text-brown-1 placeholder:text-brown-1 focus:outline-none focus:ring-2 ${
                                         errors.firstName
-                                            ? "border-[#FF355A] focus:ring-[#FF355A]/20"
-                                            : "border-gray-300 focus:border-[#FF355A] focus:ring-[#FF355A]/20"
+                                            ? "border-red-1 focus:ring-red-1/20"
+                                            : "border-gray-300 focus:border-red-1 focus:ring-red-1/20"
                                     }`}
                                 />
                                 {errors.firstName && (
-                                    <p className="mt-1 text-sm text-[#FF355A]">
+                                    <p className="mt-1 text-sm text-red-1">
                                         {errors.firstName.message}
                                     </p>
                                 )}
                             </div>
                             <div>
-                                <label className="mb-2 block text-sm font-medium text-[#732C03]">
+                                <label className="mb-2 block text-sm font-medium text-brown-1">
                                     Sobrenome
                                 </label>
                                 <input
                                     type="text"
                                     placeholder="Insira o seu sobrenome"
                                     {...register("lastName")}
-                                    className={`w-full rounded-lg border px-4 py-3 text-[#732C03] placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
+                                    className={`w-full rounded-lg border px-4 py-3 bg-cream-3 text-brown-1 placeholder:text-brown-1 focus:outline-none focus:ring-2 ${
                                         errors.lastName
-                                            ? "border-[#FF355A] focus:ring-[#FF355A]/20"
-                                            : "border-gray-300 focus:border-[#FF355A] focus:ring-[#FF355A]/20"
+                                            ? "border-red-1 focus:ring-red-1/20"
+                                            : "border-gray-300 focus:border-red-1 focus:ring-red-1/20"
                                     }`}
                                 />
                                 {errors.lastName && (
-                                    <p className="mt-1 text-sm text-[#FF355A]">
+                                    <p className="mt-1 text-sm text-red-1">
                                         {errors.lastName.message}
                                     </p>
                                 )}
@@ -243,14 +236,14 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
                                     type="tel"
                                     placeholder="(00) 00000-0000"
                                     {...register("phone")}
-                                    className={`w-full rounded-lg border px-4 py-3 text-[#732C03] placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
+                                    className={`w-full rounded-lg border px-4 py-3 bg-cream-3 text-brown-1 placeholder:text-brown-1 focus:outline-none focus:ring-2 ${
                                         errors.phone
-                                            ? "border-[#FF355A] focus:ring-[#FF355A]/20"
-                                            : "border-gray-300 focus:border-[#FF355A] focus:ring-[#FF355A]/20"
+                                            ? "border-red-1 focus:ring-red-1/20"
+                                            : "border-gray-300 focus:border-red-1 focus:ring-red-1/20"
                                     }`}
                                 />
                                 {errors.phone && (
-                                    <p className="mt-1 text-sm text-[#FF355A]">
+                                    <p className="mt-1 text-sm text-red-1">
                                         {errors.phone.message}
                                     </p>
                                 )}
@@ -263,14 +256,14 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
                                     type="text"
                                     placeholder="DD/MM/AAAA"
                                     {...register("birthDate")}
-                                    className={`w-full rounded-lg border px-4 py-3 text-[#732C03] placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
+                                    className={`w-full rounded-lg border px-4 py-3 bg-cream-3 text-brown-1 placeholder:text-brown-1 focus:outline-none focus:ring-2 ${
                                         errors.birthDate
-                                            ? "border-[#FF355A] focus:ring-[#FF355A]/20"
-                                            : "border-gray-300 focus:border-[#FF355A] focus:ring-[#FF355A]/20"
+                                            ? "border-red-1 focus:ring-red-1/20"
+                                            : "border-gray-300 focus:border-red-1 focus:ring-red-1/20"
                                     }`}
                                 />
                                 {errors.birthDate && (
-                                    <p className="mt-1 text-sm text-[#FF355A]">
+                                    <p className="mt-1 text-sm text-red-1">
                                         {errors.birthDate.message}
                                     </p>
                                 )}
@@ -287,10 +280,10 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
                                     type={showPassword ? "text" : "password"}
                                     placeholder="Insira a sua senha"
                                     {...register("password")}
-                                    className={`w-full rounded-lg border px-4 py-3 pr-12 text-[#732C03] placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
+                                    className={`w-full rounded-lg border px-4 py-3 pr-12 bg-cream-3 text-brown-1 placeholder:text-brown-1 focus:outline-none focus:ring-2 ${
                                         errors.password
-                                            ? "border-[#FF355A] focus:ring-[#FF355A]/20"
-                                            : "border-gray-300 focus:border-[#FF355A] focus:ring-[#FF355A]/20"
+                                            ? "border-red-1 focus:ring-red-1/20"
+                                            : "border-gray-300 focus:border-red-1 focus:ring-red-1/20"
                                     }`}
                                 />
                                 <button
@@ -298,7 +291,7 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
                                     onClick={() =>
                                         setShowPassword(!showPassword)
                                     }
-                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#732C03]"
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-brown-1 hover:text-[#732C03]"
                                 >
                                     {showPassword ? (
                                         <EyeOff className="h-5 w-5" />
@@ -308,7 +301,7 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
                                 </button>
                             </div>
                             {errors.password && (
-                                <p className="mt-1 text-sm text-[#FF355A]">
+                                <p className="mt-1 text-sm text-red-1">
                                     {errors.password.message}
                                 </p>
                             )}
@@ -328,10 +321,10 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
                                     }
                                     placeholder="Confirme a sua senha"
                                     {...register("confirmPassword")}
-                                    className={`w-full rounded-lg border px-4 py-3 pr-12 text-[#732C03] placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
+                                    className={`w-full rounded-lg border px-4 py-3 pr-12 bg-cream-3 text-brown-1 placeholder:text-brown-1 focus:outline-none focus:ring-2 ${
                                         errors.confirmPassword
-                                            ? "border-[#FF355A] focus:ring-[#FF355A]/20"
-                                            : "border-gray-300 focus:border-[#FF355A] focus:ring-[#FF355A]/20"
+                                            ? "border-red-1 focus:ring-red-1/20"
+                                            : "border-gray-300 focus:border-red-1 focus:ring-red-1/20"
                                     }`}
                                 />
                                 <button
@@ -341,7 +334,7 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
                                             !showConfirmPassword
                                         )
                                     }
-                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#732C03]"
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-brown-1 hover:text-[#732C03]"
                                 >
                                     {showConfirmPassword ? (
                                         <EyeOff className="h-5 w-5" />
@@ -351,7 +344,7 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
                                 </button>
                             </div>
                             {errors.confirmPassword && (
-                                <p className="mt-1 text-sm text-[#FF355A]">
+                                <p className="mt-1 text-sm text-red-1">
                                     {errors.confirmPassword.message}
                                 </p>
                             )}
@@ -363,11 +356,11 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
                                 type="checkbox"
                                 id="newsletter"
                                 {...register("wantsNewsletter")}
-                                className="mt-1 h-5 w-5 rounded border-gray-300 text-[#FF355A] focus:ring-[#FF355A]"
+                                className="mt-1 h-5 w-5 rounded border-gray-300 text-red-1 focus:ring-red-1"
                             />
                             <label
                                 htmlFor="newsletter"
-                                className="text-sm text-[#732C03]"
+                                className="text-sm text-brown-1"
                             >
                                 Quero receber ofertas e novidades relacionadas
                                 as próximas edições da Fuxico!
@@ -380,7 +373,7 @@ export function Step1PersonalData({ onNext }: Step1PersonalDataProps) {
                 <div className="mt-8">
                     <button
                         type="submit"
-                        className="w-full rounded-lg bg-[#FF355A] px-6 py-4 text-lg font-semibold text-white transition-all hover:bg-[#E62E4F] hover:shadow-lg"
+                        className="w-full rounded-lg bg-red-1 px-6 py-4 text-lg font-semibold text-white transition-all hover:bg-red-2 hover:shadow-lg"
                     >
                         Avançar
                     </button>

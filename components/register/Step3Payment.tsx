@@ -3,10 +3,8 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CreditCard } from "lucide-react";
-import {
-    paymentSchema,
-    type PaymentFormData,
-} from "@/lib/schemas/register";
+import Image from "next/image";
+import { paymentSchema, type PaymentFormData } from "@/lib/schemas/register";
 
 interface Step3PaymentProps {
     onNext: (data: PaymentFormData) => void;
@@ -37,9 +35,9 @@ export function Step3Payment({ onNext, onBack }: Step3PaymentProps) {
             <div className="flex flex-1 flex-col rounded-2xl bg-[#FFF4E6] p-8 shadow-lg w-full">
                 {/* Header Banner */}
                 <div className="mb-6 flex items-center justify-between">
-                    <div className="flex items-center gap-2 rounded-lg bg-[#FF355A] px-4 py-2">
-                        <CreditCard className="h-5 w-5 text-white" />
-                        <span className="font-bold text-white">PAGAMENTO</span>
+                    <div className="flex items-center justify-center gap-2 rounded-lg w-full bg-[#FFD7DE] px-4 py-2">
+                        <CreditCard className="h-5 w-5 text-red-1" />
+                        <span className="font-bold text-red-1">PAGAMENTO</span>
                     </div>
                 </div>
 
@@ -50,7 +48,7 @@ export function Step3Payment({ onNext, onBack }: Step3PaymentProps) {
                     </h2>
                     <div className="space-y-3">
                         {/* Credit Card Option */}
-                        <label className="flex cursor-pointer items-center gap-3 rounded-lg border-2 border-gray-200 bg-white p-4 transition-all hover:border-[#FF355A]">
+                        <label className="flex cursor-pointer items-center gap-3 rounded-lg p-4 transition-all hover:border-[#FF355A]">
                             <input
                                 type="radio"
                                 value="credit"
@@ -64,17 +62,25 @@ export function Step3Payment({ onNext, onBack }: Step3PaymentProps) {
                         </label>
 
                         {/* Pix Option */}
-                        <label className="flex cursor-pointer items-center gap-3 rounded-lg border-2 border-gray-200 bg-white p-4 transition-all hover:border-[#FF355A]">
+                        <label className="flex cursor-pointer items-center gap-3 rounded-lg p-4 transition-all hover:border-[#FF355A]">
                             <input
                                 type="radio"
                                 value="pix"
                                 {...register("paymentMethod")}
                                 className="h-5 w-5 border-2 border-[#FF355A] text-[#FF355A] focus:ring-[#FF355A]"
                             />
-                            <div className="flex h-6 w-6 items-center justify-center rounded bg-gradient-to-br from-[#32BCAD] to-[#00A86B] text-white font-bold text-xs">
-                                P
+                            <div className="flex h-6 w-6 items-center justify-center rounded bg-gradient-to-br">
+                                <Image
+                                    src="/icons/pix.svg"
+                                    alt="Pix"
+                                    width={20}
+                                    height={20}
+                                    className="h-4 w-4"
+                                />
                             </div>
-                            <span className="font-medium text-[#732C03]">Pix</span>
+                            <span className="font-medium text-[#732C03]">
+                                Pix
+                            </span>
                         </label>
                     </div>
                     {errors.paymentMethod && (
@@ -88,9 +94,9 @@ export function Step3Payment({ onNext, onBack }: Step3PaymentProps) {
                 {paymentMethod === "credit" && (
                     <>
                         <div className="mb-6 border-t border-gray-200 pt-6">
-                            <h3 className="mb-4 text-lg font-bold text-[#FF355A]">
+                            <div className="mb-4 text-lg font-bold text-[#FF355A]">
                                 Cartão de crédito
-                            </h3>
+                            </div>
                             <div className="space-y-4">
                                 {/* Card Number */}
                                 <div>
@@ -101,7 +107,7 @@ export function Step3Payment({ onNext, onBack }: Step3PaymentProps) {
                                         type="text"
                                         placeholder="0000 0000 0000 0000"
                                         {...register("cardNumber")}
-                                        className={`w-full rounded-lg border bg-[#FFF4E6] px-4 py-3 text-[#732C03] placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
+                                        className={`w-full rounded-lg border bg-cream-3 px-4 py-3 text-[#732C03] placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
                                             errors.cardNumber
                                                 ? "border-[#FF355A] focus:ring-[#FF355A]/20"
                                                 : "border-gray-300 focus:border-[#FF355A] focus:ring-[#FF355A]/20"
@@ -124,7 +130,7 @@ export function Step3Payment({ onNext, onBack }: Step3PaymentProps) {
                                             type="text"
                                             placeholder="DD/MM/AAAA"
                                             {...register("expirationDate")}
-                                            className={`w-full rounded-lg border bg-[#FFF4E6] px-4 py-3 text-[#732C03] placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
+                                            className={`w-full rounded-lg border bg-cream-3 px-4 py-3 text-[#732C03] placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
                                                 errors.expirationDate
                                                     ? "border-[#FF355A] focus:ring-[#FF355A]/20"
                                                     : "border-gray-300 focus:border-[#FF355A] focus:ring-[#FF355A]/20"
@@ -144,7 +150,7 @@ export function Step3Payment({ onNext, onBack }: Step3PaymentProps) {
                                             type="text"
                                             placeholder="000"
                                             {...register("cvv")}
-                                            className={`w-full rounded-lg border bg-[#FFF4E6] px-4 py-3 text-[#732C03] placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
+                                            className={`w-full rounded-lg border bg-cream-3 px-4 py-3 text-[#732C03] placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
                                                 errors.cvv
                                                     ? "border-[#FF355A] focus:ring-[#FF355A]/20"
                                                     : "border-gray-300 focus:border-[#FF355A] focus:ring-[#FF355A]/20"
@@ -167,7 +173,7 @@ export function Step3Payment({ onNext, onBack }: Step3PaymentProps) {
                                         type="text"
                                         placeholder="Inserir nome do titular"
                                         {...register("cardholderName")}
-                                        className={`w-full rounded-lg border bg-[#FFF4E6] px-4 py-3 text-[#732C03] placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
+                                        className={`w-full rounded-lg border bg-cream-3 px-4 py-3 text-[#732C03] placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
                                             errors.cardholderName
                                                 ? "border-[#FF355A] focus:ring-[#FF355A]/20"
                                                 : "border-gray-300 focus:border-[#FF355A] focus:ring-[#FF355A]/20"
@@ -189,7 +195,7 @@ export function Step3Payment({ onNext, onBack }: Step3PaymentProps) {
                                         type="text"
                                         placeholder="000.000.000-00"
                                         {...register("cardholderCpf")}
-                                        className={`w-full rounded-lg border bg-[#FFF4E6] px-4 py-3 text-[#732C03] placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
+                                        className={`w-full rounded-lg border bg-cream-3 px-4 py-3 text-[#732C03] placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
                                             errors.cardholderCpf
                                                 ? "border-[#FF355A] focus:ring-[#FF355A]/20"
                                                 : "border-gray-300 focus:border-[#FF355A] focus:ring-[#FF355A]/20"

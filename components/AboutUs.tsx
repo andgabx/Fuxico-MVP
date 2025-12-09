@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function AboutUs() {
     return (
-        <section className="relative w-full">
+        <section className="relative w-full bg-cream-1">
             {/* Background Image - Preserving scalloped borders */}
             <div className="relative w-full">
                 <Image

@@ -89,7 +89,7 @@ export function Releases() {
     };
 
     return (
-        <section className="w-full py-[8vh]">
+        <section className="w-full py-[8vh] bg-cream-1">
             <div className="mx-auto w-full max-w-[90vw] px-[4vw]">
                 {/* Title */}
                 <h2 className="mb-8 text-4xl font-bold text-brown-1 font-hero md:text-5xl lg:text-6xl">

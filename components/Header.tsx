@@ -47,9 +47,10 @@ export function Header() {
     ];
 
     return (
+        <header className="absolute top-0 left-0 right-0 z-30 w-full">
             <div className="mx-auto max-w-[90vw] px-4 sm:px-6 lg:px-4 py-4">
                 {/* White Container */}
-                <div className="rounded-2xl bg-[#FAE7D5]">
+                <div className="rounded-2xl bg-[#FAE7D5] shadow-lg">
                     {/* Top Section */}
                     <div className="flex items-center justify-between gap-4 px-4 py-4 sm:px-6 sm:gap-8 lg:gap-16">
                         {/* Mobile Menu Button */}
@@ -321,5 +322,6 @@ export function Header() {
                     </nav>
                 </div>
             </div>
+        </header>
     );
 }
