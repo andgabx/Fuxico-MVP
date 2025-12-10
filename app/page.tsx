@@ -6,12 +6,14 @@ import { Plans } from "@/components/Plans";
 import { Hero } from "@/components/Hero";
 import { PromoBanner } from "@/components/PromoBanner";
 import { Benefits } from "@/components/Benefits";
+import { Exclusive } from "@/components/Exclusive";
 
 export default function Home() {
     return (
         <div>
             <PromoBanner />
             <Hero />
+            <Exclusive />
             <Releases />
             <AboutUs />
             <Benefits />

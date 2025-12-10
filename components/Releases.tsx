@@ -105,10 +105,20 @@ export function Releases() {
                         >
                             {/* Product Image with Background */}
                             <div className="relative mb-4 aspect-square w-full overflow-hidden rounded-xl">
-                                {/* Background SVG */}
+                                {/* Product Background PNG - Base layer */}
                                 <div className="absolute inset-0 z-0">
                                     <Image
                                         src="/assets/releases/productbg.png"
+                                        alt=""
+                                        fill
+                                        className="object-cover"
+                                        priority
+                                    />
+                                </div>
+                                {/* Background SVG - Star (rotates on hover) - Above productbg */}
+                                <div className="absolute inset-0 z-[5] group-hover:animate-spin transition-transform duration-500">
+                                    <Image
+                                        src="/assets/releases/star.svg"
                                         alt=""
                                         fill
                                         className="object-cover"
@@ -130,13 +140,16 @@ export function Releases() {
                             </div>
 
                             {/* Product Name */}
-                            <h3 className="mb-2 text-lg font-semibold text-brown-1">
+                            <div className="mb-2 text-lg font-semibold text-brown-1">
                                 {product.name}
-                            </h3>
+                            </div>
 
                             {/* Rating */}
                             <div className="mb-3 flex items-center gap-1">
                                 {renderStars(product.rating)}
+                                <span className="text-sm text-gray-500">
+                                    {product.rating}
+                                </span>
                             </div>
 
                             {/* Price */}

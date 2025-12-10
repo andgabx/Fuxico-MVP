@@ -8,6 +8,7 @@ interface Plan {
     id: number;
     name: string;
     price: string;
+    type: string;
     description: string;
     buttonColor: string;
     buttonText: string;
@@ -19,7 +20,8 @@ const plans: Plan[] = [
     {
         id: 1,
         name: "Plano Bisbilhotice",
-        price: "R$60,00",
+        price: "R$69,90",
+        type: "Plano Mensal",
         description:
             "O começo perfeito para quem ama surpresas e quer entrar no jogo!",
         buttonColor: "#00C4D8",
@@ -33,7 +35,8 @@ const plans: Plan[] = [
     {
         id: 2,
         name: "Plano Mexerico",
-        price: "R$90,00",
+        price: "R$109,90",
+        type: "Plano Trimestral",
         description:
             "Surpresas trimestrais + frete grátis = combo perfeito para quem não gosta de ficar por fora!",
         buttonColor: "#FF6600",
@@ -48,7 +51,8 @@ const plans: Plan[] = [
     {
         id: 3,
         name: "Plano Fuxico",
-        price: "R$120,00",
+        price: "R$139,90",
+        type: "Plano Semestral",
         description:
             "O nível máximo da aventura: surpresas, brindes e aquele gostinho de encontrar um tesouro especial!",
         buttonColor: "#FF355A",
@@ -65,7 +69,7 @@ const plans: Plan[] = [
 
 export function Plans() {
     return (
-        <section className="w-full bg-cream-1 py-[4vh] md:py-[8vh]">
+        <section id="plans" className="w-full bg-cream-1 py-[4vh] md:py-[8vh]">
             <div className="mx-auto w-full max-w-[90vw]">
                 {/* Title */}
                 <h2 className="mb-8 text-center text-2xl font-bold text-brown-1 font-hero sm:mb-10 sm:text-3xl md:mb-12 md:text-4xl lg:text-5xl xl:text-6xl px-[4vw] sm:px-[6vw] lg:px-[8vw]">
@@ -91,6 +95,13 @@ export function Plans() {
                                 </span>
                             </div>
 
+                            {/* Type */}
+                            <div className="mb-3 text-center sm:mb-4">
+                                <span className="text-sm text-brown-1 font-semibold sm:text-base">
+                                    {plan.type}
+                                </span>
+                            </div>
+
                             {/* Description */}
                             <div className="mb-4 h-[80px] sm:mb-6 sm:h-[100px]">
                                 <p className="text-xs leading-relaxed text-brown-1 sm:text-sm">
@@ -110,9 +121,9 @@ export function Plans() {
 
                             {/* Features Section */}
                             <div>
-                                <h4 className="mb-3 text-base font-bold text-brown-1 sm:mb-4 sm:text-lg">
+                                <div className="mb-3 text-base font-bold text-brown-1 sm:mb-4 sm:text-lg">
                                     {plan.sectionTitle}
-                                </h4>
+                                </div>
                                 <ul className="space-y-2 sm:space-y-3">
                                     {plan.features.map((feature, index) => (
                                         <li
@@ -136,9 +147,12 @@ export function Plans() {
 
                 {/* Bottom CTA Button */}
                 <div className="flex justify-center">
-                    <button className="rounded-full bg-orange-1 px-8 py-3 text-base font-bold text-white transition-all duration-300 hover:bg-orange-2 hover:scale-105 sm:px-10 sm:py-3.5 sm:text-lg md:px-12 md:py-4">
-                        Vamos lá!
-                    </button>
+                    <Link
+                        href="/ourplans"
+                        className="rounded-full bg-[#FF355A] px-8 py-3 text-base font-bold text-white transition-all duration-300 hover:bg-[#E62E4F] hover:scale-105 sm:px-10 sm:py-3.5 sm:text-lg md:px-12 md:py-4"
+                    >
+                        Saiba mais
+                    </Link>
                 </div>
             </div>
         </section>

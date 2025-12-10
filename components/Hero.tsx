@@ -38,7 +38,7 @@ const heroSlides: HeroSlide[] = [
         id: 1,
         banner: "/assets/hero/banner1.png",
         image: "/assets/hero/image1.png",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+        text: "Desperte a prática de novos hobbies com blindboxes criadas por artistas locais, onde cada caixa guarda uma surpresa que conecta você a um novo jeito de fazer arte.",
         imageSize: {
             mobile: "h-[130%]",
             tablet: "sm:h-[120vh]",
@@ -59,7 +59,7 @@ const heroSlides: HeroSlide[] = [
         id: 2,
         banner: "/assets/hero/banner2.png",
         image: "/assets/hero/image2.png",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+        text: "Desperte a prática de novos hobbies com blindboxes criadas por artistas locais, onde cada caixa guarda uma surpresa que conecta você a um novo jeito de fazer arte.",
         translateY: {
             mobile: "translate-y-20",
             tablet: "sm:translate-y-28",
@@ -75,7 +75,7 @@ const heroSlides: HeroSlide[] = [
         id: 3,
         banner: "/assets/hero/banner3.png",
         image: "/assets/hero/image3.png",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+        text: "Desperte a prática de novos hobbies com blindboxes criadas por artistas locais, onde cada caixa guarda uma surpresa que conecta você a um novo jeito de fazer arte.",
         imageSize: {
             mobile: "h-[100vh]",
             tablet: "sm:h-[120vh]",
@@ -163,7 +163,7 @@ export function Hero() {
                             {/* Content Container */}
                             <div className="my-2 relative z-10 flex h-full items-center">
                                 {/* Left Side - Text Content */}
-                                <div className="flex-1 space-y-6 px-8 sm:px-12 lg:px-16 sm:flex-1 lg:flex-1">
+                                <div className="flex-1 space-y-6 px-8 sm:px-12 lg:px-16 sm:flex-1 lg:flex-1 ml-8 sm:ml-12 lg:ml-20 xl:ml-32">
                                     <motion.h1
                                         initial={{ opacity: 0, x: -50 }}
                                         animate={{ opacity: 1, x: 0 }}
@@ -173,11 +173,10 @@ export function Hero() {
                                         }}
                                         className="text-4xl font-bold leading-tight text-cream-1 font-hero sm:text-5xl md:text-6xl lg:text-7xl"
                                     >
-                                        RETALHOS QUE
+                                        REDESCUBRA O PRAZER
                                         <br />
-                                        COSTURAM ARTE E
-                                        <br />
-                                        AFETO
+                                        DA CRIATIVIDADE MANUAL
+
                                     </motion.h1>
                                     <motion.p
                                         initial={{ opacity: 0, x: -50 }}
@@ -200,11 +199,13 @@ export function Hero() {
                                         }}
                                     >
                                         <Link
-                                            href="/planos"
-                                            className="inline-flex items-center gap-2 rounded-full border-2 border-orange-1 bg-cream-1 px-6 py-3 text-base font-medium text-orange-1 transition-all duration-300 hover:bg-cream-2 hover:scale-105"
+                                            href="/#plans"
+                                            className="inline-flex items-center gap-2 rounded-full bg-cream-1 px-6 py-3 text-base font-medium text-orange-1 transition-all duration-300 hover:bg-cream-2 hover:scale-105"
                                         >
-                                            <ArrowRightIcon className="h-5 w-5" />
-                                            <span>Ver nossos planos</span>
+                                            <div className="rounded-full bg-orange-1 px-2 py-1">
+                                                <ArrowRightIcon className="h-5 w-5 text-white" />
+                                            </div>
+                                            <span>Veja nossos planos</span>
                                         </Link>
                                     </motion.div>
                                 </div>

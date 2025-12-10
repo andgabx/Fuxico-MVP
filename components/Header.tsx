@@ -32,17 +32,17 @@ export function Header() {
     ];
 
     const catalogItems = [
-        { id: "lancamentos", label: "Lançamentos", href: "/lancamentos" },
-        { id: "blindboxes", label: "Blindboxes", href: "/blindboxes" },
+        { id: "lancamentos", label: "Lançamentos", href: "/" },
+        { id: "blindboxes", label: "Blindboxes", href: "/" },
         {
             id: "colecao-fuxico",
             label: "Coleção Fuxico",
-            href: "/colecao-fuxico",
+            href: "/",
         },
         {
             id: "colecao-parceiros",
             label: "Coleção Parceiros",
-            href: "/colecao-parceiros",
+            href: "/",
         },
     ];
 
@@ -177,7 +177,7 @@ export function Header() {
                                     {/* Mobile User Actions */}
                                     <div className="space-y-3">
                                         <Link
-                                            href="/login"
+                                            href="/"
                                             onClick={() => setIsOpen(false)}
                                             className="flex items-center gap-3 py-2 text-base font-medium text-[#732C03] hover:text-[#FF355A] hover:font-bold transition-colors"
                                         >
@@ -185,7 +185,7 @@ export function Header() {
                                             <span>Entrar/Cadastrar</span>
                                         </Link>
                                         <Link
-                                            href="/cart"
+                                            href="/"
                                             onClick={() => setIsOpen(false)}
                                             className="flex items-center gap-3 py-2 text-base font-medium text-[#732C03] hover:text-[#FF355A] hover:font-bold transition-colors"
                                         >
@@ -226,7 +226,7 @@ export function Header() {
                         <div className="flex items-center gap-3 sm:gap-6">
                             {/* Login/Register - Desktop */}
                             <Link
-                                href="/login"
+                                href="/"
                                 className="hidden sm:flex items-center gap-2 text-sm font-medium text-black hover:text-[#FF355A] hover:font-bold transition-colors"
                             >
                                 <User className="h-5 w-5" />
@@ -237,7 +237,7 @@ export function Header() {
 
                             {/* Shopping Cart */}
                             <Link
-                                href="/cart"
+                                href="/"
                                 className="flex items-center gap-2 text-sm font-medium text-black hover:text-[#FF355A] hover:font-bold transition-colors relative"
                             >
                                 <ShoppingCart className="h-5 w-5" />
