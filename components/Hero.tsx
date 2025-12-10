@@ -96,18 +96,22 @@ const heroSlides: HeroSlide[] = [
 
 export function Hero() {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [direction, setDirection] = useState(0);
 
     const nextSlide = () => {
+        setDirection(1);
         setCurrentIndex((prev) => (prev + 1) % heroSlides.length);
     };
 
     const prevSlide = () => {
+        setDirection(-1);
         setCurrentIndex(
             (prev) => (prev - 1 + heroSlides.length) % heroSlides.length
         );
     };
 
     const goToSlide = (index: number) => {
+        setDirection(index > currentIndex ? 1 : -1);
         setCurrentIndex(index);
     };
 
@@ -122,14 +126,28 @@ export function Hero() {
 
                 {/* Carousel Container */}
                 <div className="relative h-[70vh] w-full overflow-hidden sm:h-[80vh] lg:h-[90vh]">
-                    <AnimatePresence mode="wait">
+                    <AnimatePresence custom={direction} initial={false}>
                         <motion.div
                             key={currentSlide.id}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.25 }}
-                            className="relative h-full w-full"
+                            custom={direction}
+                            variants={{
+                                enter: (dir: number) => ({
+                                    x: dir > 0 ? "100%" : "-100%",
+                                }),
+                                center: { x: 0 },
+                                exit: (dir: number) => ({
+                                    x: dir > 0 ? "-100%" : "100%",
+                                }),
+                            }}
+                            initial="enter"
+                            animate="center"
+                            exit="exit"
+                            transition={{
+                                type: "tween",
+                                ease: "easeInOut",
+                                duration: 0.5,
+                            }}
+                            className="absolute inset-0 h-full w-full"
                         >
                             {/* Background Banner */}
                             <div className="absolute inset-0">
@@ -143,14 +161,16 @@ export function Hero() {
                             </div>
 
                             {/* Content Container */}
-                            <div className="relative z-10 flex h-full items-center">
+                            <div className="my-2 relative z-10 flex h-full items-center">
                                 {/* Left Side - Text Content */}
                                 <div className="flex-1 space-y-6 px-8 sm:px-12 lg:px-16 sm:flex-1 lg:flex-1">
                                     <motion.h1
                                         initial={{ opacity: 0, x: -50 }}
                                         animate={{ opacity: 1, x: 0 }}
-                                        exit={{ opacity: 0, x: -50 }}
-                                        transition={{ duration: 0.3 }}
+                                        transition={{
+                                            duration: 0.3,
+                                            delay: 0.2,
+                                        }}
                                         className="text-4xl font-bold leading-tight text-cream-1 font-hero sm:text-5xl md:text-6xl lg:text-7xl"
                                     >
                                         RETALHOS QUE
@@ -162,10 +182,9 @@ export function Hero() {
                                     <motion.p
                                         initial={{ opacity: 0, x: -50 }}
                                         animate={{ opacity: 1, x: 0 }}
-                                        exit={{ opacity: 0, x: -50 }}
                                         transition={{
                                             duration: 0.3,
-                                            delay: 0.1,
+                                            delay: 0.3,
                                         }}
                                         className="max-w-2xl text-base leading-relaxed text-cream-1 sm:text-lg"
                                     >
@@ -175,10 +194,9 @@ export function Hero() {
                                     <motion.div
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: 20 }}
                                         transition={{
                                             duration: 0.3,
-                                            delay: 0.2,
+                                            delay: 0.4,
                                         }}
                                     >
                                         <Link
@@ -196,10 +214,9 @@ export function Hero() {
                                     <motion.div
                                         initial={{ opacity: 0, x: 50 }}
                                         animate={{ opacity: 1, x: 0 }}
-                                        exit={{ opacity: 0, x: 50 }}
                                         transition={{
                                             duration: 0.3,
-                                            delay: 0.1,
+                                            delay: 0.2,
                                         }}
                                         className={`relative w-auto ${
                                             currentSlide.imageSize?.mobile ||
@@ -245,25 +262,23 @@ export function Hero() {
                     </AnimatePresence>
 
                     {/* Navigation Arrows */}
-                    {canGoPrev && (
-                        <button
-                            onClick={prevSlide}
-                            className="absolute left-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm transition-all duration-300 hover:bg-white hover:scale-110"
-                            aria-label="Slide anterior"
-                        >
-                            <ArrowLeft className="h-6 w-6 text-brown-1" />
-                        </button>
-                    )}
+                    <button
+                        onClick={prevSlide}
+                        className="absolute left-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm transition-all duration-300 hover:bg-white hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+                        aria-label="Slide anterior"
+                        disabled={!canGoPrev}
+                    >
+                        <ArrowLeft className="h-6 w-6 text-brown-1" />
+                    </button>
 
-                    {canGoNext && (
-                        <button
-                            onClick={nextSlide}
-                            className="absolute right-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm transition-all duration-300 hover:bg-white hover:scale-110"
-                            aria-label="Próximo slide"
-                        >
-                            <ArrowRight className="h-6 w-6 text-brown-1" />
-                        </button>
-                    )}
+                    <button
+                        onClick={nextSlide}
+                        className="absolute right-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm transition-all duration-300 hover:bg-white hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+                        aria-label="Próximo slide"
+                        disabled={!canGoNext}
+                    >
+                        <ArrowRight className="h-6 w-6 text-brown-1" />
+                    </button>
                 </div>
 
                 {/* Navigation Dots */}

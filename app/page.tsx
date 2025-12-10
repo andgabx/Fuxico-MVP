@@ -6,7 +6,6 @@ import { Plans } from "@/components/Plans";
 import { Hero } from "@/components/Hero";
 import { PromoBanner } from "@/components/PromoBanner";
 import { Benefits } from "@/components/Benefits";
-import { Header } from "@/components/Header";
 
 export default function Home() {
     return (

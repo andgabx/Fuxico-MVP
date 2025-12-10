@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Poppins, Londrina_Solid } from "next/font/google";
-import Image from "next/image";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -26,11 +25,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" className="overflow-x-hidden">
             <body
-                className={`${poppins.variable} ${londrinaSolid.variable} antialiased relative`}
+                className={`${poppins.variable} ${londrinaSolid.variable} antialiased relative overflow-x-hidden`}
             >
-                <div className="relative z-10">{children}</div>
+                {children}
             </body>
         </html>
     );
