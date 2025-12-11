@@ -26,7 +26,7 @@ export function Header() {
         { href: "/", label: "Catálogo", hasDropdown: true },
         { href: "/", label: "Promoções" },
         { href: "/", label: "Sobre nós" },
-        { href: "/", label: "Clube" },
+        { href: "/ourplans", label: "Clube" },
         { href: "/", label: "Parceiros" },
         { href: "/", label: "Contato" },
     ];
@@ -73,7 +73,7 @@ export function Header() {
                                             className="inline-block"
                                         >
                                             <Image
-                                                src="/assets/logos/logoheader.svg"
+                                                src="/assets/logos/oficial.svg"
                                                 alt="Fuxico"
                                                 width={150}
                                                 height={50}
@@ -203,7 +203,7 @@ export function Header() {
                         {/* Logo */}
                         <Link href="/" className="shrink-0">
                             <Image
-                                src="/assets/logos/logoheader.svg"
+                                src="/assets/logos/oficial.svg"
                                 alt="Fuxico"
                                 width={150}
                                 height={50}

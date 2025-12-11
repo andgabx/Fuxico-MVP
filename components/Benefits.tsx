@@ -8,7 +8,7 @@ const benefits = [
         title: "Surpresa",
         icon: "/assets/benefits/surprise.svg",
         description:
-            "Chegou a hora de transformar suas ideias em realidade – personalize do seu jeito e surpreenda o mundo.",
+            "Cada blindbox chega sem spoiler, trazendo um novo universo de atividade manual feito com amor e carinho para dentro da sua rotina.",
         iconBgColor: "#FF355A", // Rosa/Fuchsia
     },
     {
@@ -16,7 +16,7 @@ const benefits = [
         title: "Imersão",
         icon: "/assets/benefits/imersion.svg",
         description:
-            "Chegou a hora de transformar suas ideias em realidade – personalize do seu jeito e surpreenda o mundo.",
+            "Você entra no universo de cada artista, explorando sua área de atuação enquanto experimenta novas maneiras de criar e aprender no processo.",
         iconBgColor: "#FF6600", // Laranja
     },
     {
@@ -24,7 +24,7 @@ const benefits = [
         title: "Conveniência",
         icon: "/assets/benefits/convenience.svg",
         description:
-            "Chegou a hora de transformar suas ideias em realidade – personalize do seu jeito e surpreenda o mundo.",
+            "A Fuxico cuida de toda curadoria e da entrega, para que você só se preocupe em abrir a caixa e aproveitar o seu momento de criação e lazer.",
         iconBgColor: "#00C4D8", // Azul claro/Cyan
     },
 ];
@@ -60,7 +60,7 @@ export function Benefits() {
                             </div>
 
                             {/* Title */}
-                            <div className="mb-3 text-xl font-poppins text-[#732C03] sm:mb-4 sm:text-2xl">
+                            <div className="mb-3 text-xl font-poppins font-semibold text-[#732C03] sm:mb-4 sm:text-2xl">
                                 {benefit.title}
                             </div>
 
@@ -75,4 +75,3 @@ export function Benefits() {
         </section>
     );
 }
-

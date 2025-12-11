@@ -41,7 +41,7 @@ export function HeaderRegister() {
                                             className="inline-block"
                                         >
                                             <Image
-                                                src="/assets/logos/registerheaderlogo.svg"
+                                                src="/assets/logos/oficial.svg"
                                                 alt="Fuxico"
                                                 width={150}
                                                 height={50}
@@ -82,7 +82,7 @@ export function HeaderRegister() {
                         {/* Logo */}
                         <Link href="/" className="shrink-0">
                             <Image
-                                src="/assets/logos/registerheaderlogo.svg"
+                                src="/assets/logos/oficial.svg"
                                 alt="Fuxico"
                                 width={150}
                                 height={50}

@@ -108,7 +108,7 @@ export default function RegisterPage() {
 
             <div className="relative z-10 flex flex-1 flex-col py-8 px-4">
                 {/* Cancel Button - Escanteado à esquerda */}
-                <div className="mb-8">
+                <div className="mb-8 px-[5vw]">
                     <Link
                         href="/"
                         className="inline-flex items-center gap-2 text-[#FF355A] hover:text-[#732C03] transition-colors"
